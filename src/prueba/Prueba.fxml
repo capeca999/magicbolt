@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="principal" prefHeight="405.0" prefWidth="728.0" styleClass="prueba" stylesheets="@newCascadeStyleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.PruebaController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <VBox layoutY="3.0" prefHeight="200.0" prefWidth="100.0" />
+      <MenuBar layoutX="4.0" layoutY="2.0" prefHeight="17.0" prefWidth="728.0" styleClass="menu">
+        <menus>
+          <Menu mnemonicParsing="false" text="Carta">
+            <items>
+              <MenuItem onAction="#abrirventana" text="Buscar">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="K" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <Menu mnemonicParsing="false" text="Añadir/Eliminar Propiedades">
+                    <items>
+                      <MenuItem fx:id="menuitemdentro" mnemonicParsing="false" text="Añadir/Eliminar Set" />
+                        <MenuItem mnemonicParsing="false" text="Añadir/Eliminar Tipos" />
+                        <MenuItem mnemonicParsing="false" text="Añadir/Eliminar" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirañadir" text="Añadir Carta" />
+                  <MenuItem mnemonicParsing="false" text="Modificar" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Archivo">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Modificar" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Productos">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Añadir" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar" />
+                  <MenuItem mnemonicParsing="false" text="Modificar" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Categoria">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Añadir" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar" />
+                  <MenuItem mnemonicParsing="false" text="Modificar" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Proveedores">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Añadir" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar" />
+                  <MenuItem mnemonicParsing="false" text="Modificar" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Pedidos">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirañadirpedido" text="Añadir" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar" />
+                  <MenuItem mnemonicParsing="false" text="Modificar" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Clientes">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirañadircliente" text="Añadir" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar" />
+                  <MenuItem mnemonicParsing="false" text="Modificar" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="4.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="218.0" fitWidth="318.0" layoutX="234.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../logoo.png" />
+         </image>
+         <effect>
+            <Lighting bumpInput="$null" diffuseConstant="2.0" specularConstant="2.0" specularExponent="6.51" surfaceScale="0.0">
+               <light>
+                  <Light.Distant color="#00d6ff" />
+               </light>
+            </Lighting>
+         </effect>
+      </ImageView>
+      <TextField id="cambioid" fx:id="cambioid" editable="false" layoutX="14.0" layoutY="359.0" />
+    </children>
+</AnchorPane>

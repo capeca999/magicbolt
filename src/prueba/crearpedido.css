@@ -1,0 +1,8 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+  -fx-background-image:url('../fondo4.jpg');
+    -fx-background-size: cover;
+}

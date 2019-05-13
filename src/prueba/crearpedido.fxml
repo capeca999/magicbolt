@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="prueba.CrearpedidoController">
+    <stylesheets>
+        <URL value="@crearpedido.css" />
+    </stylesheets>
+   <children>
+      <TextField id="empleadodni" fx:id="empleadodni" layoutX="37.0" layoutY="106.0" promptText="DNI" />
+      <DatePicker id="fechapedido" fx:id="fechapedido" layoutX="37.0" layoutY="159.0" promptText="Fecha Pedido" />
+      <TextField id="idreal" fx:id="idreal" editable="false" layoutX="300.0" layoutY="106.0" promptText="ID CLIENTE" />
+      <TextField id="idempleado" fx:id="idempleado" layoutX="300.0" layoutY="159.0" promptText="ID EMPLEADO" />
+      <Button layoutX="242.0" layoutY="106.0" mnemonicParsing="false" onAction="#findid" text="FIND ID" />
+   </children>
+</AnchorPane>

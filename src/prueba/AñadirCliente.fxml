@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="prueba.AñadirClienteController">
+    <stylesheets>
+        <URL value="@añadircliente.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="49.0" layoutY="50.0" prefHeight="332.0" prefWidth="177.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Nombre" fx:id="Nombre" promptText="Introducir Nombre" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Apellidos" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Apellidos" fx:id="Apellidos" promptText="Apellidos" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Telefono" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="telefono" fx:id="telefono" promptText="Introduce el telefono" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="DNI" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Dni" fx:id="Dni" promptText="DNI" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Fecha_nacimiento" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="fnacimiento" fx:id="fnacimiento" promptText="Introduce tu fecha de nacimiento" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Juez" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <RadioButton id="nojuez" fx:id="nojuez" mnemonicParsing="false" selected="true" text="No es juez" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="juezv" />
+               </toggleGroup>
+            </RadioButton>
+            <Separator prefWidth="200.0" />
+            <RadioButton id="juez" fx:id="juez" mnemonicParsing="false" text="Es juez" textFill="WHITE" toggleGroup="$juezv">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </VBox>
+      <Label layoutX="226.0" layoutY="14.0" prefHeight="31.0" prefWidth="214.0" text="Añadir Clientes" textFill="#fffb00">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button id="añadir" fx:id="añadir" layoutX="243.0" layoutY="308.0" mnemonicParsing="false" onAction="#añadircliente" prefHeight="58.0" prefWidth="98.0" text="Añadir Cliente" textFill="RED">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

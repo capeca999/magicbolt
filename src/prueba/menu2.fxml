@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="main" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.Menu2Controller">
+    <stylesheets>
+        <URL value="@menu2.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="nombcart" layoutX="141.0" layoutY="111.0" promptText="Nombre de carta" />
+      <ToolBar layoutX="134.0" layoutY="160.0" prefHeight="40.0" prefWidth="314.0">
+        <items>
+            <CheckBox id="checkblanco" fx:id="checkblanco" mnemonicParsing="false" prefHeight="14.0" prefWidth="21.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../white.png" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
+            <CheckBox id="checkazul" fx:id="checkazul" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../blue.png" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
+            <CheckBox id="checknegro" fx:id="checknegro" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../black.png" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
+            <CheckBox id="checkrojo" fx:id="checkrojo" mnemonicParsing="false" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../red.png" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
+            <CheckBox id="checkverde" fx:id="checkverde" mnemonicParsing="false" prefHeight="17.0" prefWidth="10.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../greeen.png" />
+               </image>
+            </ImageView>
+        </items>
+      </ToolBar>
+      <ComboBox fx:id="formatcombo" layoutX="134.0" layoutY="214.0" prefHeight="25.0" prefWidth="135.0" promptText="Formato" />
+      <ComboBox fx:id="setcombo" layoutX="134.0" layoutY="252.0" prefHeight="25.0" prefWidth="135.0" promptText="Set" />
+      <ComboBox fx:id="tipocombo" layoutX="134.0" layoutY="295.0" prefHeight="25.0" prefWidth="135.0" promptText="Tipo" />
+      <ComboBox fx:id="setcombo1" layoutX="134.0" layoutY="334.0" prefHeight="25.0" prefWidth="135.0" promptText="Subtipo" />
+      <ImageView fitHeight="117.0" fitWidth="81.0" layoutX="352.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../lotus.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

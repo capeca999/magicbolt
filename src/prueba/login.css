@@ -1,0 +1,14 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+   -fx-background-image:url('../fondo.jpg');
+    -fx-background-size: cover;
+}
+
+.AnchorPane{
+  
+    
+     -fx-opacity: 0.3;
+}
