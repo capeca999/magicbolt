@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="631.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.AñadirEmpleadoController">
+    <stylesheets>
+        <URL value="@añadirempleado.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="59.0" layoutY="1.0" prefHeight="431.0" prefWidth="293.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Nombre" fx:id="Nombre" promptText="Introducir Nombre" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Apellidos" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Apellidos" fx:id="Apellidos" promptText="Apellidos" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Telefono" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="telefono" fx:id="telefono" promptText="Introduce el telefono" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Contraseña" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField id="contrasenyap" fx:id="contrasenyap" prefHeight="25.0" prefWidth="188.0" promptText="Introduce contraseña" />
+            <Label prefHeight="17.0" prefWidth="149.0" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField id="contrasenyas" fx:id="contrasenyas" prefHeight="25.0" prefWidth="188.0" promptText="Vuelve a introducir la contraseña" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Fecha Contrato" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="fcontrato" fx:id="fcontrato" prefHeight="25.0" prefWidth="221.0" promptText="Introduce tu fecha de contrato" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Fecha_nacimiento" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="fnacimiento" fx:id="fnacimiento" prefHeight="25.0" prefWidth="225.0" promptText="Introduce tu fecha de nacimiento" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Admin" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <RadioButton id="noadmin" fx:id="noadmin" mnemonicParsing="false" selected="true" text="No es admin" textFill="WHITE">
+               <toggleGroup>
+                  <ToggleGroup fx:id="adminv" />
+               </toggleGroup>
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </RadioButton>
+            <Separator prefWidth="200.0" />
+            <RadioButton id="admin" fx:id="admin" mnemonicParsing="false" text="Es admin" textFill="WHITE" toggleGroup="$adminv">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </VBox>
+      <TextField id="idauto" fx:id="idauto" editable="false" layoutX="431.0" layoutY="62.0" promptText="ID AUTO" />
+      <Label layoutX="431.0" layoutY="27.0" prefHeight="17.0" prefWidth="149.0" text="ID EMPLEADO" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="424.0" layoutY="350.0" mnemonicParsing="false" onAction="#añadirempleado" prefHeight="60.0" prefWidth="121.0" text="Añadir Cliente" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

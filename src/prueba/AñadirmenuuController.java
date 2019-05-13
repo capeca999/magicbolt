@@ -114,7 +114,7 @@ public class AñadirmenuuController implements Initializable {
     @FXML
     private ComboBox<String> subtipo;
     @FXML
-    private ComboBox<String> Edicion;
+    private ComboBox<Edicion> Edicion;
     @FXML
     private TextField artista;
 
@@ -167,6 +167,7 @@ public class AñadirmenuuController implements Initializable {
     private ToolBar menumana;
     @FXML
     private VBox menuañadirmana;
+    private ObservableList <Edicion> edicionc= FXCollections.observableArrayList();
     
       private ObservableList<String> options= FXCollections.observableArrayList("");
           private ObservableList<String> subtype= FXCollections.observableArrayList("");
@@ -207,11 +208,38 @@ public class AñadirmenuuController implements Initializable {
     private TextField nombrecarta;
     @FXML
     private Button añadircarta;
-      
+      // pones el tipo edicion   combobox.add(null) combobox.setitems(lista)
+    
+    private void iniciaredicion(){
+ 
+        Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        try{
+            PreparedStatement stmt5 = con.prepareStatement("Select Idedicion, Nombre, Fechalanzamiento from edicion ");
+
+            ResultSet rss = stmt5.executeQuery();
+            
+            while (rss.next()){
+              Edicion edicion = new Edicion ( rss.getInt(1), rss.getString(2), rss.getDate(3));
+                System.out.println(rss.getString(2));
+              edicionc.add(edicion);
+            }
+            
+            Edicion edicion = new Edicion ("No edición");
+            edicionc.add(edicion);
+            
+        }
+          catch(SQLException exx){
+         exx.getMessage();
+     }
+        //.setTooltip ( new Tooltip("awdinawoidnio"));
+       
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
      comprobarmana();
-     
+     iniciaredicion();
       Conexion conexion = new Conexion();
         Connection con = conexion.conectar();
         
@@ -243,25 +271,26 @@ public class AñadirmenuuController implements Initializable {
          exx.getMessage();
      }
      
+           Edicion.setItems(edicionc); 
            
            
-           try{
-               PreparedStatement edicioncon = con.prepareStatement("Select Nombre from edicion");
-               
-               edicioncon.executeQuery();
-               ResultSet rss = edicioncon.executeQuery();
-               
-               while (rss.next()){
-                  edicionob.add(rss.getString(1));
-               }
-               Edicion.setItems(edicionob);
-               
-              
+           /*         try{
+           PreparedStatement edicioncon = con.prepareStatement("Select Nombre from edicion");
+           
+           edicioncon.executeQuery();
+           ResultSet rss = edicioncon.executeQuery();
+           
+           while (rss.next()){
+           edicionob.add(rss.getString(1));
            }
-  
-      catch(SQLException exx){
-         exx.getMessage();
-     }
+          
+           
+           
+           }
+           
+           catch(SQLException exx){
+           exx.getMessage();
+           }*/
      
            
            try{
@@ -674,7 +703,7 @@ public class AñadirmenuuController implements Initializable {
 nombrecarta.clear();
 tipo.setValue("Tipo");
 subtipo.setValue("Subtipo");
-Edicion.setValue("Edicion");
+Edicion.setValue(null);
 artista.clear();
 loyalidad.clear();
 ataque.clear();
@@ -868,7 +897,8 @@ todo="";
                stmt2.setInt(10, defensaint);
                
                PreparedStatement stmt4 = con.prepareStatement("Select Idedicion from edicion where Nombre = ?");
-               stmt4.setString(1, Edicion.getValue());
+              
+               stmt4.setString(1,  Edicion.getSelectionModel().getSelectedItem().Nombre);
               rs = stmt4.executeQuery();
               rs.next();
               stmt2.setInt(11, rs.getInt(1));

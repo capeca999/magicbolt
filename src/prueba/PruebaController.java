@@ -5,7 +5,13 @@
  */
 package prueba;
 
+import DAO.Conexion;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -38,7 +45,13 @@ public class PruebaController implements Initializable {
     private RadioMenuItem opc1;
     @FXML
     private TextField cambioid;
-    
+    @FXML
+    private MenuItem añadirempleado;
+    @FXML
+    private MenuItem eliminarempleado;
+    @FXML
+    private MenuItem modempelado;
+       Alert alert = new Alert (Alert.AlertType.ERROR);
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -180,5 +193,74 @@ public class PruebaController implements Initializable {
         }
         
     }
+
+    /*
+    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Prueba.fxml"));
+    Parent root1 = (Parent)fxmlLoader.load();
+    Stage stage = new Stage();
+    PruebaController controller = fxmlLoader.<PruebaController>getController();
+    controller.initVariable(empleado.getText());
+    stage.setScene(new Scene (root1));
+    stage.initModality(Modality.APPLICATION_MODAL);
+    stage.show();
+    */
+    @FXML
+    private void abrirañadirempelado(ActionEvent event) {
+        Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        
+        try{
+            PreparedStatement stmt2 = con.prepareStatement("Select admin from empleado where Idempleado = ?");
+           int idd = Integer.parseInt(cambioid.getText());
+           
+            stmt2.setInt(1, idd);
+            ResultSet rst = stmt2.executeQuery();
+           rst.next();
+           if (rst.getBoolean(1)==false){
+                             
+           alert.setTitle("ADMIN ERROR");
+                alert.setHeaderText("ADMIN ERROR HEADER");
+                alert.setContentText("No eres administrador, no puedes entrar");
+                alert.showAndWait();
+           }
+           else 
+              try{
+            String todo="hola";
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AñadirEmpleado.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            AñadirEmpleadoController controller = fxmlLoader.<AñadirEmpleadoController>getController();
+            controller.initVariable(cambioid.getText());
+       
+          
+       
+        
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+            
+            
+        }
+             catch(IOException ex){
+            ex.getMessage();
+        }
+        }
+         catch(SQLException exx){
+         exx.getMessage();
+     }
+       
+        
+        
+      
+    }
+
+    @FXML
+    private void abrireliminarempleado(ActionEvent event) {
+    }
+
+    @FXML
+    private void abrirmodempleado(ActionEvent event) {
+    }
+    
     
 }

@@ -75,6 +75,13 @@
                   <MenuItem mnemonicParsing="false" text="Modificar" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Empleado/Admin">
+               <items>
+                  <MenuItem id="añadirempleado" fx:id="añadirempleado" mnemonicParsing="false" onAction="#abrirañadirempelado" text="Añadir Empelado" />
+                  <MenuItem id="eliminarempelado" fx:id="eliminarempleado" mnemonicParsing="false" onAction="#abrireliminarempleado" text="Eliminar Empleado" />
+                  <MenuItem id="modempleado" fx:id="modempelado" mnemonicParsing="false" onAction="#abrirmodempleado" text="Modificar Empleado" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="4.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" />
