@@ -90,14 +90,16 @@ public class LoginController implements Initializable {
     
   
     
-private void abrirventana(int id){
+private void abrirventana(String id){
     try{
-  
+   
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Prueba.fxml"));
-        Parent root1 = (Parent)fxmlLoader.load();
+          
+
+          Parent root1 = (Parent)fxmlLoader.load();
         Stage stage = new Stage();
         PruebaController controller = fxmlLoader.<PruebaController>getController();
-        controller.initVariable(empleado.getText());
+        controller.initVariable(id);
         stage.setScene(new Scene (root1));
         stage.initModality(Modality.APPLICATION_MODAL);
        stage.show();
@@ -116,16 +118,37 @@ private void abrirventana(int id){
         
         try{
          
-            PreparedStatement stmt2 = con.prepareStatement("Select Idempleado from empleado where Idempleado = ?");
-          int result = Integer.parseInt(empleado.getText());
-          
-            stmt2.setInt(1, result);
-          //  stmt2.setString(2, contrasenyaa.getText());
+   
+            PreparedStatement stmt2 = con.prepareStatement("Select count(*) from empleado where password = ? and Idempleado = ?");
+            
+            //String user = empleado.getText(), pass = contrasenyaa.getText();
+            String user = "2", pass = "pinazo";
+            
+            stmt2.setString(1, pass);
+            stmt2.setString(2, user);
+            
+            
             ResultSet rs = stmt2.executeQuery();
-                  PreparedStatement stmt3 = con.prepareStatement("Select password from empleado where password = ?");
+            rs.next();
+       
+            if (rs.getInt(1)==0){
+                System.out.println("incorrecto");
+            }
+            else {
+                System.out.println("Correcto");
+                
+                abrirventana(user);
+            }
+            
+            /*
+            
+                  PreparedStatement stmt3 = con.prepareStatement("Select count(*) as cantidad from empleado where password = ? and Idempleado = ?");
          stmt3.setString(1, contrasenyaa.getText());
+         stmt3.setString(2, empleado.getText());
          ResultSet rss= stmt3.executeQuery();
-            if(!rs.next()){
+         
+            System.out.println(rs.getInt(1));
+            if(rs.next()){
               
            alert.setTitle("ID ERROR");
                 alert.setHeaderText("ID ERROR HEADER");
@@ -135,9 +158,6 @@ private void abrirventana(int id){
                 
             }
         
-            
-            
-   
          
    else     if (!rss.next()){
                alert.setTitle("CONTRASENYA ERROR");
@@ -146,7 +166,8 @@ private void abrirventana(int id){
                 alert.showAndWait();
                 contrasenyaa.clear();
          } else abrirventana(result);
-             
+        
+*/
  
          
        

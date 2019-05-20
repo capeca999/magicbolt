@@ -98,5 +98,6 @@
          </effect>
       </ImageView>
       <TextField id="cambioid" fx:id="cambioid" editable="false" layoutX="14.0" layoutY="359.0" />
+      <Button layoutX="355.0" layoutY="258.0" mnemonicParsing="false" onAction="#abrirputamierda" text="Button" />
     </children>
 </AnchorPane>

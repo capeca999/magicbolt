@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="prueba.CrearpedidoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.CrearpedidoController">
     <stylesheets>
         <URL value="@crearpedido.css" />
     </stylesheets>
@@ -17,5 +18,20 @@
       <TextField id="idreal" fx:id="idreal" editable="false" layoutX="300.0" layoutY="106.0" promptText="ID CLIENTE" />
       <TextField id="idempleado" fx:id="idempleado" layoutX="300.0" layoutY="159.0" promptText="ID EMPLEADO" />
       <Button layoutX="242.0" layoutY="106.0" mnemonicParsing="false" onAction="#findid" text="FIND ID" />
+      <Label layoutX="149.0" layoutY="7.0" text="CREACIÓN PEDIDO" textFill="#e5ff00">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <Button layoutX="133.0" layoutY="279.0" mnemonicParsing="false" onAction="#crearpedido" text="Crear Pedido" textFill="#0004ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="396.0" layoutY="279.0" mnemonicParsing="false" text="Reset" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

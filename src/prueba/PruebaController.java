@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -151,9 +153,9 @@ public class PruebaController implements Initializable {
             CrearpedidoController controller = fxmlLoader.<CrearpedidoController>getController();
             String pasarid="";
             pasarid=cambioid.getText();
-            int pasarainit=0;
-           pasarainit= Integer.parseInt(pasarid);
-            controller.initVariable(pasarainit);
+           
+         
+            controller.initVariable(pasarid);
             stage.setScene(new Scene(root1));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
@@ -161,9 +163,9 @@ public class PruebaController implements Initializable {
             
         }
         
-        catch(Exception ex){
-            ex.getMessage();
-        }
+        catch (IOException ex){
+                Logger.getLogger(CrearpedidoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         
     }
@@ -171,6 +173,7 @@ public class PruebaController implements Initializable {
     @FXML
     private void abrirañadircliente(ActionEvent event) {
           try{
+              //AñadirCliente.fxml
             String todo="hola";
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AñadirCliente.fxml"));
             Parent root1 = (Parent)fxmlLoader.load();
@@ -188,7 +191,7 @@ public class PruebaController implements Initializable {
             
         }
         
-        catch(Exception ex){
+        catch(IOException | NumberFormatException ex){
             ex.getMessage();
         }
         
@@ -260,6 +263,77 @@ public class PruebaController implements Initializable {
 
     @FXML
     private void abrirmodempleado(ActionEvent event) {
+      
+         Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        
+        try{
+            PreparedStatement stmt2 = con.prepareStatement("Select admin from empleado where Idempleado = ?");
+           int idd = Integer.parseInt(cambioid.getText());
+           
+            stmt2.setInt(1, idd);
+            ResultSet rst = stmt2.executeQuery();
+           rst.next();
+           if (rst.getBoolean(1)==false){
+                             
+           alert.setTitle("ADMIN ERROR");
+                alert.setHeaderText("ADMIN ERROR HEADER");
+                alert.setContentText("No eres administrador, no puedes entrar");
+                alert.showAndWait();
+           }
+           else 
+              try{
+            String todo="hola";
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modempelado.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            ModempeladoController controller = fxmlLoader.<ModempeladoController>getController();
+        
+       
+          
+       
+        
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+            
+            
+        }
+             catch(IOException ex){
+            ex.getMessage();
+        }
+        }
+         catch(SQLException exx){
+         exx.getMessage();
+     }  
+        
+    }
+
+    @FXML
+    private void abrirputamierda(ActionEvent event) {
+    try{
+            String todo="hola";
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("crearpedido.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            CrearpedidoController controller = fxmlLoader.<CrearpedidoController>getController();
+            String pasarid="";
+            pasarid=cambioid.getText();
+            int pasarainit=0;
+         //  pasarainit= Integer.parseInt(pasarid);
+          //  controller.initVariable(pasarainit);
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+            
+            
+        }
+        
+        catch(Exception ex){
+            ex.getMessage();
+        }
+        
+        
     }
     
     

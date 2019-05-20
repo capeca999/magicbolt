@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="925.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.ModempeladoController">
+    <stylesheets>
+        <URL value="@modempelado.css" />
+    </stylesheets>
+   <children>
+      <TableView id="empleadotable" fx:id="empleadotable" layoutY="6.0" prefHeight="290.0" prefWidth="600.0">
+        <columns>
+          <TableColumn id="TId" fx:id="TId" prefWidth="75.0" text="IdEmpleado" />
+          <TableColumn id="TAp" fx:id="TAp" prefWidth="75.0" text="Apellido" />
+            <TableColumn id="TNo" fx:id="TNo" prefWidth="75.0" text="Nombre" />
+            <TableColumn id="FNa" fx:id="FNa" prefWidth="75.0" text="Fnacimiento" />
+            <TableColumn id="FCo" fx:id="FCo" prefWidth="75.0" text="FContrato" />
+            <TableColumn id="TEl" fx:id="TEl" prefWidth="75.0" text="Telefono" />
+            <TableColumn id="PAs" fx:id="PAs" prefWidth="75.0" text="Password" />
+            <TableColumn id="ADm" fx:id="ADm" prefWidth="75.0" text="Admin" />
+        </columns>
+      </TableView>
+      <VBox layoutX="600.0" layoutY="4.0" prefHeight="431.0" prefWidth="293.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Nombre" fx:id="Nombre" promptText="Introducir Nombre" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Apellidos" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Apellidos" fx:id="Apellidos" promptText="Apellidos" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Telefono" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="telefono" fx:id="telefono" promptText="Introduce el telefono" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Contraseña" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField id="contrasenyap" fx:id="contrasenyap" prefHeight="25.0" prefWidth="188.0" promptText="Introduce contraseña" />
+            <Label prefHeight="17.0" prefWidth="149.0" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField id="contrasenyas" fx:id="contrasenyas" prefHeight="25.0" prefWidth="188.0" promptText="Vuelve a introducir la contraseña" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Fecha Contrato" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="fcontrato" fx:id="fcontrato" prefHeight="25.0" prefWidth="221.0" promptText="Introduce tu fecha de contrato" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Fecha_nacimiento" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="fnacimiento" fx:id="fnacimiento" prefHeight="25.0" prefWidth="225.0" promptText="Introduce tu fecha de nacimiento" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Admin" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <RadioButton id="noadmin" fx:id="noadmin" mnemonicParsing="false" selected="true" text="No es admin" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="adminv" />
+               </toggleGroup>
+            </RadioButton>
+            <Separator prefWidth="200.0" />
+            <RadioButton id="admin" fx:id="admin" mnemonicParsing="false" text="Es admin" textFill="WHITE" toggleGroup="$adminv">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </VBox>
+      <Button id="modificar" fx:id="modificar" layoutX="105.0" layoutY="349.0" mnemonicParsing="false" onAction="#modificartable" text="Modificar" />
+      <Button id="eliminarempleado" fx:id="eliminarempleado" layoutX="231.0" layoutY="349.0" mnemonicParsing="false" onAction="#eliminarempleado" text="Eliminar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

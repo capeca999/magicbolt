@@ -5,43 +5,117 @@
  */
 package prueba;
 
+import DAO.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author paco
  */
-public class Carta extends Producto {
+public class Carta {
     
-protected String Mana;
-protected String Tipo;
-protected String Subtipo;
-protected String Edicion;
-protected String Artista;
-protected String Imagen;
 
-    public Carta(String Mana, String Tipo, String Subtipo, String Edicion, String Artista, String Imagen, double Precio, double Existencias, int Idproducto, String Nombre, String Descripcion) {
-        super(Precio, Existencias, Idproducto, Nombre, Descripcion);
+    private int Idcarta;
+    private double Precio;
+    private double Existencias;
+    private String Nombre;
+    private String Descripcion;
+    private String Mana;
+    private int Tipo;
+    private int Subtipo;
+    private String Artista;
+    private String Imagen;
+    private int Lealdad;
+    private double Ataque;
+    private double Defensa;
+    private String Edicion;
+    private boolean Foil;
+    private int idedicion;
+
+    public Carta(int Idcarta, double Precio, double Existencias, String Nombre, String Edicion, boolean Foil, int idedicion) {
+        this.Idcarta = Idcarta;
+        this.Precio = Precio;
+        this.Existencias = Existencias;
+        this.Nombre = Nombre;
+        this.Edicion = Edicion;
+        this.Foil = Foil;
+        this.idedicion = idedicion;
+    }
+
+    /*   public Carta(int Idcarta, double Existencias, String Nombre, String Edicion, boolean Foil, int idedicion, double Precio) {
+    this.Idcarta = Idcarta;
+    this.Existencias = Existencias;
+    this.Nombre = Nombre;
+    this.Edicion = Edicion;
+    this.Foil = Foil;
+    this.idedicion = idedicion;
+    this.Precio = Precio;
+    
+    }*/
+
+    public Carta(int Idcarta, double Precio, double Existencias, String Nombre, String Descripcion, String Mana, int Tipo, int Subtipo, String Artista, String Imagen, int Lealdad, double Ataque, double Defensa, String Edicion, boolean Foil, int idedicion) {
+        this.Idcarta = Idcarta;
+        this.Precio = Precio;
+        this.Existencias = Existencias;
+        this.Nombre = Nombre;
+        this.Descripcion = Descripcion;
         this.Mana = Mana;
         this.Tipo = Tipo;
         this.Subtipo = Subtipo;
-        this.Edicion = Edicion;
         this.Artista = Artista;
         this.Imagen = Imagen;
+        this.Lealdad = Lealdad;
+        this.Ataque = Ataque;
+        this.Defensa = Defensa;
+        this.Edicion = Edicion;
+        this.Foil = Foil;
+        this.idedicion = idedicion;
+    }
+
+    public int getIdedicion() {
+        return idedicion;
+    }
+
+    public void setIdedicion(int idedicion) {
+        this.idedicion = idedicion;
+    }
+
+    
+
+    public int getIdcarta() {
+        return Idcarta;
+    }
+
+    public double getPrecio() {
+        return Precio;
+    }
+
+    public double getExistencias() {
+        return Existencias;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public String getDescripcion() {
+        return Descripcion;
     }
 
     public String getMana() {
         return Mana;
     }
 
-    public String getTipo() {
+    public int getTipo() {
         return Tipo;
     }
 
-    public String getSubtipo() {
+    public int getSubtipo() {
         return Subtipo;
-    }
-
-    public String getEdicion() {
-        return Edicion;
     }
 
     public String getArtista() {
@@ -52,20 +126,56 @@ protected String Imagen;
         return Imagen;
     }
 
+    public int getLealdad() {
+        return Lealdad;
+    }
+
+    public double getAtaque() {
+        return Ataque;
+    }
+
+    public double getDefensa() {
+        return Defensa;
+    }
+
+    public String getEdicion() {
+        return Edicion;
+    }
+
+    public boolean isFoil() {
+        return Foil;
+    }
+
+    public void setIdcarta(int Idcarta) {
+        this.Idcarta = Idcarta;
+    }
+
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
+    }
+
+    public void setExistencias(double Existencias) {
+        this.Existencias = Existencias;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
+    }
+
     public void setMana(String Mana) {
         this.Mana = Mana;
     }
 
-    public void setTipo(String Tipo) {
+    public void setTipo(int Tipo) {
         this.Tipo = Tipo;
     }
 
-    public void setSubtipo(String Subtipo) {
+    public void setSubtipo(int Subtipo) {
         this.Subtipo = Subtipo;
-    }
-
-    public void setEdicion(String Edicion) {
-        this.Edicion = Edicion;
     }
 
     public void setArtista(String Artista) {
@@ -76,21 +186,105 @@ protected String Imagen;
         this.Imagen = Imagen;
     }
 
-@Override
-    public String todo(){
-       String todo=super.todo();
-       
-       
-       
-       todo+="El coste de maná es: " + this.Mana;
-       todo+="El tipo de carta es: " + this.Tipo;
-       todo+="El subtipo de carta es:  " + this.Subtipo;
-       todo+="La edición de esta carta es: " + this.Edicion;
-       todo+="El artista de la carta es: " + this.Artista;
+    public void setLealdad(int Lealdad) {
+        this.Lealdad = Lealdad;
+    }
+
+    public void setAtaque(double Ataque) {
+        this.Ataque = Ataque;
+    }
+
+    public void setDefensa(double Defensa) {
+        this.Defensa = Defensa;
+    }
+
+    public void setEdicion(String Edicion) {
+        this.Edicion = Edicion;
+    }
+
+    public void setFoil(boolean Foil) {
+        this.Foil = Foil;
+    }
+
+  
+   
+    
+    
+            
+    
+
+
+    @Override
+    public String toString(){
+     String todo=this.Nombre;
+     
       return todo;
       
        
      }
+    
+    /*    this.Idcarta = Idcarta;
+    this.Existencias = Existencias;
+    this.Nombre = Nombre;
+    this.Edicion = Edicion;
+    this.Foil = Foil;
+    this.idedicion = idedicion;*/
+    
+    public static void llenarCarta(ObservableList <Carta> lista, String statement){
+        Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        ResultSet rs;
+        ResultSet rs2;
+        PreparedStatement stmt=null;
+        PreparedStatement stmt2=null;
+        boolean fin=false;
+        try{
+         
+     
+ 
+             
+        
+                   stmt= con.prepareStatement("SELECT Nombre, Edicion, Foil, Existencias, Idcarta, Precio from carta where Nombre = ?");
+            stmt.setString(1, statement);
+            stmt.executeQuery();
+            rs= stmt.executeQuery();
+            
+            
+            /*
+            public Carta(int Idcarta, double Precio, double Existencias, String Nombre, String Edicion, boolean Foil, int idedicion) {
+            this.Idcarta = Idcarta;
+            this.Precio = Precio;
+            this.Existencias = Existencias;
+            this.Nombre = Nombre;
+            this.Edicion = Edicion;
+            this.Foil = Foil;
+            this.idedicion = idedicion;
+            }
+            
+            */
+            
+            
+            while (rs.next()){
+              
+                  stmt2= con.prepareStatement("SELECT Nombre from Edicion where Idedicion = ?");
+            stmt2.setInt(1, rs.getInt(2));
+            stmt2.executeQuery();
+            rs2= stmt2.executeQuery();
+            rs2.next();
+                
+                System.out.println(rs.getInt(2));
+                lista.add(new Carta (rs.getInt(5), rs.getDouble(6), rs.getInt(4), rs.getString(1), rs2.getString(1), rs.getBoolean(3), rs.getInt(2)));
+                
+               
+            }
+            
+            
+        }
+           catch(SQLException exx){
+         exx.getMessage();
+     }
+    }
+   
     
     
     

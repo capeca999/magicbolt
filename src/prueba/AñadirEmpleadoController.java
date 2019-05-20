@@ -51,14 +51,17 @@ public class AñadirEmpleadoController implements Initializable {
     private PasswordField contrasenyap;
     @FXML
     private PasswordField contrasenyas;
+    String errortext="";
    Alert alert = new Alert (Alert.AlertType.ERROR);
+   Alert alertcampo = new Alert (Alert.AlertType.ERROR);
     Alert alertconf = new Alert (Alert.AlertType.CONFIRMATION);
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+     alertcampo.setTitle("CAMPO ERROR");
+                alertcampo.setHeaderText("FALTA CAMPO ERROR");
     }    
      public void initVariable(String info){
    //  cambioid.setText(info);
@@ -68,7 +71,7 @@ public class AñadirEmpleadoController implements Initializable {
     private void añadirempleado(ActionEvent event) {
         Conexion conexion = new Conexion();
         Connection con = conexion.conectar();
-        
+        boolean error=false;
         if (!contrasenyap.getText().equals(contrasenyas.getText())){
            
                alert.setTitle("CONTRASENYA ERROR");
@@ -82,6 +85,35 @@ public class AñadirEmpleadoController implements Initializable {
         else{
             try{
                 PreparedStatement stmt2 = con.prepareStatement("INSERT INTO empleado (Apellido, Nombre, Fnacimiento, Fcontrato, Telefono, password, admin) VALUES(?,?,?,?,?,?,?)");
+                if (Apellidos.getText().isEmpty()){
+                     
+                errortext+="EL CAMPO APELLIDOS NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                error=true;
+               // alert.showAndWait();
+                }
+                if(Nombre.getText().isEmpty()){
+                    errortext+="EL CAMPO NOMBRE NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                                error=true;
+                }
+                
+                if (fnacimiento.getValue() == null){
+                    errortext+="EL CAMPO FECHA DE NACIMIENTO NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                                error=true;
+                }
+                
+                if (fcontrato.getValue() == null){
+                    errortext+="EL CAMPO DE FECHA DE CONTRATO NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                                error=true;
+                }
+                
+                if (contrasenyap.getText().isEmpty()){
+                    errortext+="EL CAMPO DE CONTRASEÑA NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                                error=true;
+                }
+                
+                if (error==false){
+                    
+                
                 stmt2.setString(1, Apellidos.getText());
                 stmt2.setString(2, Nombre.getText());
                
@@ -97,8 +129,8 @@ public class AñadirEmpleadoController implements Initializable {
                }
           stmt2.executeUpdate();
           
-   alertconf.setTitle("Empleado Insertado Con EXITO");
-              alertconf.setHeaderText("Empleado Intertado Con EXITO");
+   alertconf.setTitle("EXITO");
+              alertconf.setHeaderText("Empleado Insertado Con EXITO");
               alertconf.setContentText("El empleado ha sido añadido con exito a la base de datos");
                alertconf.showAndWait();
                 
@@ -108,10 +140,18 @@ public class AñadirEmpleadoController implements Initializable {
           rs.next();
           String idemp = Integer.toString(rs.getInt(1));
           
-          
+                }
+                else {
+                    alert.setContentText(errortext);
+                alert.showAndWait();
+                errortext="";
+                }
             }
              catch(SQLException exx){
-         exx.getMessage();
+        alert.setTitle(exx.getMessage());
+                alert.setHeaderText("ERROR");
+                alert.setContentText("EL PROCESO DE AÑADIR UN EMPLEADO HA SIDO UN ERROR");
+                alert.showAndWait();
      }
         }
     }

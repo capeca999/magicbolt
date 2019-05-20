@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -229,6 +230,13 @@
             </Button>
          </children>
       </VBox>
+      <CheckBox id="foiltick" fx:id="foiltick" layoutX="14.0" layoutY="246.0" mnemonicParsing="false" onAction="#showfoil" text="Tiene FOIL?" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </CheckBox>
+      <TextField id="preciofoil" fx:id="preciofoil" layoutX="5.0" layoutY="292.0" promptText="Precio FOIL" />
+      <TextField id="existenciasfoil" fx:id="existenciasfoil" layoutX="5.0" layoutY="323.0" promptText="Existencias FOIL" />
    </children>
    <stylesheets>
       <URL value="@menu2.css" />
