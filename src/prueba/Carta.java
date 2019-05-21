@@ -21,7 +21,7 @@ public class Carta {
 
     private int Idcarta;
     private double Precio;
-    private double Existencias;
+    private int Existencias;
     private String Nombre;
     private String Descripcion;
     private String Mana;
@@ -36,7 +36,7 @@ public class Carta {
     private boolean Foil;
     private int idedicion;
 
-    public Carta(int Idcarta, double Precio, double Existencias, String Nombre, String Edicion, boolean Foil, int idedicion) {
+    public Carta(int Idcarta, double Precio, int Existencias, String Nombre, String Edicion, boolean Foil, int idedicion) {
         this.Idcarta = Idcarta;
         this.Precio = Precio;
         this.Existencias = Existencias;
@@ -57,7 +57,7 @@ public class Carta {
     
     }*/
 
-    public Carta(int Idcarta, double Precio, double Existencias, String Nombre, String Descripcion, String Mana, int Tipo, int Subtipo, String Artista, String Imagen, int Lealdad, double Ataque, double Defensa, String Edicion, boolean Foil, int idedicion) {
+    public Carta(int Idcarta, double Precio, int Existencias, String Nombre, String Descripcion, String Mana, int Tipo, int Subtipo, String Artista, String Imagen, int Lealdad, double Ataque, double Defensa, String Edicion, boolean Foil, int idedicion) {
         this.Idcarta = Idcarta;
         this.Precio = Precio;
         this.Existencias = Existencias;
@@ -94,7 +94,7 @@ public class Carta {
         return Precio;
     }
 
-    public double getExistencias() {
+    public int getExistencias() {
         return Existencias;
     }
 
@@ -154,7 +154,7 @@ public class Carta {
         this.Precio = Precio;
     }
 
-    public void setExistencias(double Existencias) {
+    public void setExistencias(int Existencias) {
         this.Existencias = Existencias;
     }
 
@@ -223,6 +223,9 @@ public class Carta {
        
      }
     
+  
+    
+    
     /*    this.Idcarta = Idcarta;
     this.Existencias = Existencias;
     this.Nombre = Nombre;
@@ -230,7 +233,7 @@ public class Carta {
     this.Foil = Foil;
     this.idedicion = idedicion;*/
     
-    public static void llenarCarta(ObservableList <Carta> lista, String statement){
+    public static void llenarCarta(ObservableList <Carta> lista, String carta){
         Conexion conexion = new Conexion();
         Connection con = conexion.conectar();
         ResultSet rs;
@@ -244,8 +247,7 @@ public class Carta {
  
              
         
-                   stmt= con.prepareStatement("SELECT Nombre, Edicion, Foil, Existencias, Idcarta, Precio from carta where Nombre = ?");
-            stmt.setString(1, statement);
+                   stmt= con.prepareStatement("SELECT Nombre, Edicion, Foil, Existencias, Idcarta, Precio from carta where LOWER(Nombre) LIKE \""+'%'+carta+'%'+"\"");
             stmt.executeQuery();
             rs= stmt.executeQuery();
             

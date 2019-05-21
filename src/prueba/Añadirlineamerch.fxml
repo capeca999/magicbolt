@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="prueba.AñadirlineamerchController">
+    <stylesheets>
+        <URL value="@añadirlineamerch.css" />
+    </stylesheets>
+   <children>
+      <Label id="textoswitch" fx:id="textoswitch" layoutX="47.0" layoutY="24.0" text="PEDIDO CARTA" textFill="#fbff00">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Button layoutX="299.0" layoutY="381.0" mnemonicParsing="false" onAction="#crearpedido" prefHeight="25.0" prefWidth="92.0" text="Crear Pedido" />
+      <Label layoutX="417.0" layoutY="117.0" text="ID Pedido" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <VBox layoutX="530.0" layoutY="35.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <TextField id="idclientefield" fx:id="idclientefield" prefHeight="25.0" prefWidth="51.0" />
+            <Label />
+            <TextField id="idempleadofield" fx:id="idempleadofield" prefHeight="25.0" prefWidth="51.0" />
+            <Label />
+            <TextField id="idpedidofield" fx:id="idpedidofield" prefHeight="25.0" prefWidth="51.0" />
+         </children>
+      </VBox>
+      <Label layoutX="419.0" layoutY="78.0" text="ID Empleado" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="421.0" layoutY="39.0" text="ID Cliente" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button id="buscarcarta" fx:id="buscarcarta" layoutX="206.0" layoutY="105.0" mnemonicParsing="false" onAction="#buscarcartanombre" text="Buscar" />
+      <Button id="añadirmerch" fx:id="añadirmerch" layoutX="91.0" layoutY="381.0" mnemonicParsing="false" onAction="#añadircartaatext" text="Añadir Merchandasing" />
+      <TextArea id="textcomun" fx:id="textcomun" layoutX="453.0" layoutY="298.0" prefHeight="116.0" prefWidth="196.0" />
+      <TableView id="tablamerch" fx:id="tablamerch" layoutX="38.0" layoutY="170.0" prefHeight="200.0" prefWidth="379.0">
+         <columns>
+            <TableColumn id="Idmerchrow" fx:id="Idmerchrow" prefWidth="75.0" text="Nombre" />
+            <TableColumn id="preciorow" fx:id="preciorow" prefWidth="75.0" text="Precio" />
+            <TableColumn id="existenciasrow" fx:id="existenciasrow" prefWidth="51.0" text="Existencias" />
+            <TableColumn id="nombrerow" fx:id="nombrerow" prefWidth="29.0" text="Nombre" />
+            <TableColumn id="descripcionrow" fx:id="descripcionrow" prefWidth="74.0" text="Descripcion" />
+            <TableColumn id="preciorow" fx:id="preciorow" prefWidth="74.0" text="Precio" />
+         </columns>
+      </TableView>
+      <Label layoutX="57.0" layoutY="143.0" text="2º Cual en especifico" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label id="texto2switch" fx:id="texto2switch" layoutX="57.0" layoutY="73.0" text="1º Que Merchandasing" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="nombremerch" fx:id="nombremerch" layoutX="57.0" layoutY="105.0" onKeyReleased="#buscar" promptText="Nombre  Producto" />
+   </children>
+</AnchorPane>

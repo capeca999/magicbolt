@@ -13,13 +13,13 @@
         <URL value="@añadirlinea.css" />
     </stylesheets>
    <children>
-      <Label layoutX="37.0" layoutY="14.0" text="PEDIDO CARTA" textFill="#fbff00">
+      <Label id="textoswitch" fx:id="textoswitch" layoutX="37.0" layoutY="14.0" text="PEDIDO CARTA" textFill="#fbff00">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <TextField id="nombrecarta" fx:id="nombrecarta" layoutX="37.0" layoutY="85.0" promptText="Nombre Carta" />
-      <Label layoutX="37.0" layoutY="53.0" text="1º Que carta" textFill="#e4ff00">
+      <TextField id="nombrecarta" fx:id="nombrecarta" layoutX="37.0" layoutY="85.0" onKeyReleased="#buscar" promptText="Nombre  Producto" />
+      <Label id="texto2switch" fx:id="texto2switch" layoutX="37.0" layoutY="53.0" text="1º Que carta" textFill="#e4ff00">
          <font>
             <Font size="18.0" />
          </font>
@@ -40,7 +40,7 @@
         </columns>
       </TableView>
       <TextArea id="textcomun" fx:id="textcomun" layoutX="433.0" layoutY="278.0" prefHeight="116.0" prefWidth="196.0" />
-      <Button id="añadircarta" fx:id="añadircarta" layoutX="252.0" layoutY="361.0" mnemonicParsing="false" onAction="#añadircartaatext" text="Añadir Carta" />
+      <Button id="añadircarta" fx:id="añadircarta" layoutX="71.0" layoutY="361.0" mnemonicParsing="false" onAction="#añadircartaatext" text="Añadir Carta" />
       <Button id="buscarcarta" fx:id="buscarcarta" layoutX="186.0" layoutY="85.0" mnemonicParsing="false" onAction="#buscarcartanombre" text="Buscar" />
       <Label layoutX="401.0" layoutY="19.0" text="ID Cliente" textFill="#e4ff00">
          <font>
@@ -66,5 +66,6 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button layoutX="279.0" layoutY="361.0" mnemonicParsing="false" onAction="#crearpedido" prefHeight="25.0" prefWidth="72.0" text="Crear Pedido" />
    </children>
 </AnchorPane>
