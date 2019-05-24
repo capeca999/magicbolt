@@ -45,6 +45,7 @@ public class LoginController implements Initializable {
     private PasswordField contrasenyaa;
 
     Alert alert = new Alert (AlertType.ERROR);
+        Alert info = new Alert (AlertType.INFORMATION);
     @FXML
     private Button siguiente;
 
@@ -85,7 +86,7 @@ public class LoginController implements Initializable {
        alert.setHeaderText("CLEARED HEADER");
        alert.setContentText("Los campos han sido limpiados");
        alert.showAndWait();
-       
+   
     }
     
   
@@ -121,8 +122,8 @@ private void abrirventana(String id){
    
             PreparedStatement stmt2 = con.prepareStatement("Select count(*) from empleado where password = ? and Idempleado = ?");
             
-            //String user = empleado.getText(), pass = contrasenyaa.getText();
-            String user = "2", pass = "pinazo";
+            String user = empleado.getText(), pass = contrasenyaa.getText();
+           
             
             stmt2.setString(1, pass);
             stmt2.setString(2, user);
@@ -133,10 +134,21 @@ private void abrirventana(String id){
        
             if (rs.getInt(1)==0){
                 System.out.println("incorrecto");
+                
+                       alert.setTitle("INCORRECTO");
+       alert.setHeaderText("CAMPO INCORRECTO");
+       alert.setContentText("ALGUN CAMPO ES INCORRECTO");
+       alert.showAndWait();
+                
+       
+       
             }
             else {
                 System.out.println("Correcto");
-                
+                     info.setTitle("Correcto");
+       info.setHeaderText("CAMPOS CORRECTOS");
+       info.setContentText("CAMPOS SON CORRECTOS BIENVENIDO");
+       info.showAndWait();
                 abrirventana(user);
             }
             

@@ -26,59 +26,40 @@
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <Menu mnemonicParsing="false" text="Añadir/Eliminar Propiedades">
                     <items>
-                      <MenuItem fx:id="menuitemdentro" mnemonicParsing="false" text="Añadir/Eliminar Set" />
-                        <MenuItem mnemonicParsing="false" text="Añadir/Eliminar Tipos" />
-                        <MenuItem mnemonicParsing="false" text="Añadir/Eliminar" />
+                      <MenuItem mnemonicParsing="false" onAction="#abriredicion" text="Añadir/Eliminar Edicion" />
+                        <MenuItem mnemonicParsing="false" onAction="#abrirmodtipo" text="Añadir/Eliminar/Modificar Tipos" />
+                        <MenuItem mnemonicParsing="false" onAction="#abrirmodsubtipo" text="Añadir/Eliminar/Modificar Subtipo" />
                     </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" onAction="#abrirañadir" text="Añadir Carta" />
                   <MenuItem mnemonicParsing="false" text="Modificar" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Archivo">
+          <Menu mnemonicParsing="false" text="Eventos">
             <items>
-              <MenuItem mnemonicParsing="false" text="Modificar" />
+              <MenuItem mnemonicParsing="false" onAction="#abrirañadirevento" text="Añadir" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Productos">
+          <Menu mnemonicParsing="false" text="Merchandasing">
             <items>
-              <MenuItem mnemonicParsing="false" text="Añadir" />
-                  <MenuItem mnemonicParsing="false" text="Eliminar" />
-                  <MenuItem mnemonicParsing="false" text="Modificar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirmodmerch" text="Añadir/Modificar Merchandasing" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Categoria">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Añadir" />
-                  <MenuItem mnemonicParsing="false" text="Eliminar" />
-                  <MenuItem mnemonicParsing="false" text="Modificar" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Proveedores">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Añadir" />
-                  <MenuItem mnemonicParsing="false" text="Eliminar" />
-                  <MenuItem mnemonicParsing="false" text="Modificar" />
-               </items>
-            </Menu>
             <Menu mnemonicParsing="false" text="Pedidos">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirañadirpedido" text="Añadir" />
-                  <MenuItem mnemonicParsing="false" text="Eliminar" />
-                  <MenuItem mnemonicParsing="false" text="Modificar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirmodpedido" text="Modificar" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Clientes">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirañadircliente" text="Añadir" />
-                  <MenuItem mnemonicParsing="false" text="Eliminar" />
-                  <MenuItem mnemonicParsing="false" text="Modificar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirmodcliente" text="Modificar" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Empleado/Admin">
                <items>
                   <MenuItem id="añadirempleado" fx:id="añadirempleado" mnemonicParsing="false" onAction="#abrirañadirempelado" text="Añadir Empelado" />
-                  <MenuItem id="eliminarempelado" fx:id="eliminarempleado" mnemonicParsing="false" onAction="#abrireliminarempleado" text="Eliminar Empleado" />
                   <MenuItem id="modempleado" fx:id="modempelado" mnemonicParsing="false" onAction="#abrirmodempleado" text="Modificar Empleado" />
                </items>
             </Menu>
@@ -98,6 +79,5 @@
          </effect>
       </ImageView>
       <TextField id="cambioid" fx:id="cambioid" editable="false" layoutX="14.0" layoutY="359.0" />
-      <Button layoutX="355.0" layoutY="258.0" mnemonicParsing="false" onAction="#abrirputamierda" text="Button" />
     </children>
 </AnchorPane>

@@ -1,0 +1,9 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+ -fx-background-image:url('../fondo2.jpg');
+     -fx-background-size: 750px;
+  	 -fx-background-position: 700px;
+}

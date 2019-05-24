@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -9,14 +9,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="main" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.Menu2Controller">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.FiltrarCartasController">
     <stylesheets>
-        <URL value="@menu2.css" />
+        <URL value="@filtrarcartas.css" />
     </stylesheets>
    <children>
-      <TextField id="nombrefield" fx:id="nombrefield" layoutX="141.0" layoutY="111.0" promptText="Nombre de carta" />
-      <ToolBar layoutX="108.0" layoutY="160.0" prefHeight="40.0" prefWidth="447.0">
-        <items>
+      <Button layoutX="365.0" layoutY="303.0" mnemonicParsing="false" onAction="#clearall" text="CLEAR" textFill="#175e1f">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="205.0" layoutY="303.0" mnemonicParsing="false" onAction="#buscarcarta" text="BUSCAR" textFill="#175e1f">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="115.0" fitWidth="149.0" layoutX="440.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../lotus.gif" />
+         </image>
+      </ImageView>
+      <ComboBox id="subtipocombo" fx:id="subtipocombo" layoutX="144.0" layoutY="261.0" prefHeight="25.0" prefWidth="135.0" promptText="Subtipo" />
+      <ComboBox id="tipocombo" fx:id="tipocombo" layoutX="144.0" layoutY="223.0" prefHeight="25.0" prefWidth="135.0" promptText="Tipo" />
+      <ComboBox id="setcombo" fx:id="setcombo" layoutX="144.0" layoutY="185.0" prefHeight="25.0" prefWidth="135.0" promptText="Set" />
+      <ToolBar layoutX="118.0" layoutY="124.0" prefHeight="40.0" prefWidth="447.0">
+         <items>
             <CheckBox id="checkblanco" fx:id="checkblanco" mnemonicParsing="false" prefHeight="14.0" prefWidth="21.0" />
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -59,31 +76,14 @@
                </image>
             </ImageView>
             <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="0.0" />
-            <CheckBox id="subtipocombo" fx:id="subtipocombo" mnemonicParsing="false" />
+            <CheckBox id="manaxcheck" fx:id="manaxcheck" mnemonicParsing="false" onAction="#pedirmana" />
             <ImageView fx:id="blancoicon11" fitHeight="25.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../incolor.png" />
                </image>
             </ImageView>
-        </items>
+         </items>
       </ToolBar>
-      <ComboBox id="setcombo" fx:id="setcombo" layoutX="134.0" layoutY="221.0" prefHeight="25.0" prefWidth="135.0" promptText="Set" />
-      <ComboBox id="tipocombo" fx:id="tipocombo" layoutX="134.0" layoutY="259.0" prefHeight="25.0" prefWidth="135.0" promptText="Tipo" />
-      <ComboBox id="subtipocombo" fx:id="subtipocombo" layoutX="134.0" layoutY="297.0" prefHeight="25.0" prefWidth="135.0" promptText="Subtipo" />
-      <ImageView fitHeight="115.0" fitWidth="149.0" layoutX="430.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../lotus.gif" />
-         </image>
-      </ImageView>
-      <Button layoutX="195.0" layoutY="339.0" mnemonicParsing="false" onAction="#buscarcarta" text="BUSCAR" textFill="#175e1f">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="355.0" layoutY="339.0" mnemonicParsing="false" onAction="#clearall" text="CLEAR" textFill="#175e1f">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
+      <TextField id="nombrefield" fx:id="nombrefield" layoutX="151.0" layoutY="75.0" promptText="Nombre de carta" />
    </children>
 </AnchorPane>

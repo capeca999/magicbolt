@@ -5,14 +5,21 @@
  */
 package prueba;
 
+import DAO.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author DAW
  */
 public class subtipo {
     
-    public int  Idsubtipo;
-    public String Nombre;
+    private int  Idsubtipo;
+    private String Nombre;
 
     public subtipo(int Idsubtipo, String Nombre) {
         this.Idsubtipo = Idsubtipo;
@@ -20,6 +27,7 @@ public class subtipo {
     }
     
     public subtipo (String Nombre){
+        this.Idsubtipo = 0;
         this.Nombre= Nombre;
     }
 
@@ -43,5 +51,32 @@ public class subtipo {
     public String toString() {
         return this.Nombre;
     }
+    
+      public static void llenarSubtipo(ObservableList <subtipo> lista){
+        Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        ResultSet rs;
+        ResultSet rs2;
+        PreparedStatement stmt=null;
+        PreparedStatement stmt2=null;
+        boolean fin=false;
+        try{
+         //   Idtipo	Nombre
+        stmt= con.prepareStatement("SELECT * from subtipo");
+            stmt.executeQuery();
+            rs= stmt.executeQuery();
+    while (rs.next()){
+        lista.add(new subtipo(rs.getInt(1), rs.getString(2)));
+        
+    }
+}
+         catch(SQLException exx){
+        exx.getMessage();
+    }
+        
+     }
+     
+    
+    
     
 }

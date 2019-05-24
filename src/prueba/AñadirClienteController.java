@@ -48,6 +48,8 @@ public class AñadirClienteController implements Initializable {
     private ToggleGroup juezv;
     @FXML
     private TextField telefono;
+    @FXML
+    private DatePicker finscri;
 
     /**
      * Initializes the controller class.
@@ -72,22 +74,28 @@ public class AñadirClienteController implements Initializable {
 
         //Nombre DNI telefono fecha_nacimiento apellido jeuz idpersona
         try{
-            PreparedStatement stmt2 = con.prepareStatement("INSERT INTO cliente (Nombre, DNI, Telefono, Fecha_nacimiento, Apellido, juez) VALUES(?,?,?,?,?,?)");
+            PreparedStatement stmt2 = con.prepareStatement("INSERT INTO cliente (Nombre, Apellido, Telefono, Fecha_nacimiento, Fecha_inscripcion, DNI, juez) VALUES(?,?,?,?,?,?,?)");
             stmt2.setString(1, Nombre.getText());
-            stmt2.setString(2, Dni.getText());
-            stmt2.setString(3, telefono.getText());
-            stmt2.setString(4, fnacimiento.getValue().toString());
-            stmt2.setString(5, Apellidos.getText());
+                        stmt2.setString(2, Apellidos.getText());
+                          stmt2.setString(3, telefono.getText());
+                               stmt2.setString(4, fnacimiento.getValue().toString());
+                               stmt2.setString(5, finscri.getValue().toString());
+                               
+            stmt2.setString(6, Dni.getText());
+            
+          
+       
+
             int juezono=0;
             String juezboolean="";
             if(nojuez.isSelected()){
                 juezono=0;
                 juezboolean=Integer.toString(juezono);
-                  stmt2.setString(6, juezboolean);
+                  stmt2.setString(7, juezboolean);
             }
             else juezono=1;          juezboolean=Integer.toString(juezono);    
        
-            stmt2.setString(6, juezboolean);
+            stmt2.setString(7, juezboolean);
             stmt2.executeUpdate();
 
           //  stmt2.setDate(4,fnacimiento.getValue());

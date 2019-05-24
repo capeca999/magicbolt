@@ -5,7 +5,13 @@
  */
 package prueba;
 
-import java.util.Date;
+import DAO.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Date;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -14,9 +20,9 @@ import java.util.Date;
 public class Edicion {
     
     
-    public int Idedicion;
-    public String Nombre;
-    public Date Fechalanzamiento;
+    private int Idedicion;
+    private String Nombre;
+    private Date Fechalanzamiento;
 
     public Edicion(int Idedicion, String Nombre, Date Fechalanzamiento) {
         this.Idedicion = Idedicion;
@@ -24,9 +30,18 @@ public class Edicion {
         this.Fechalanzamiento = Fechalanzamiento;
     }
     
-    public Edicion(String Nombre){
-        this.Nombre = Nombre;
+    public Edicion (String Nombre){
+        this.Idedicion =0;
+        this.Nombre=Nombre;
     }
+        
+    /*   public subtipo (String Nombre){
+    this.Idsubtipo = 0;
+    this.Nombre= Nombre;
+    }*/
+    
+    
+ 
 
     public int getIdedicion() {
         return Idedicion;
@@ -58,6 +73,27 @@ public class Edicion {
         return this.Nombre;
     }
     
-    
+     public static void llenarEdicion(ObservableList <Edicion> lista){
+        Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        ResultSet rs;
+        ResultSet rs2;
+        PreparedStatement stmt=null;
+        PreparedStatement stmt2=null;
+        boolean fin=false;
+        try{
+         //   Idtipo	Nombre
+        stmt= con.prepareStatement("SELECT * from edicion");
+            stmt.executeQuery();
+            rs= stmt.executeQuery();
+    while (rs.next()){
+        lista.add(new Edicion(rs.getInt(1), rs.getString(2), rs.getDate(3)));
+        
+    }
+}
+         catch(SQLException exx){
+        exx.getMessage();
+    }
     //fc.showSabeDialog(stage);
+}
 }

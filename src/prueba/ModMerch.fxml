@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="435.0" prefWidth="899.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.ModMerchController">
+    <stylesheets>
+        <URL value="@modmerch.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="587.0" layoutY="14.0" prefHeight="357.0" prefWidth="312.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="idfield" fx:id="idfield" promptText="ID Merchandasing" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Nombre" fx:id="Nombre" promptText="Introducir Nombre" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Descripción" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Descripcion" fx:id="Descripcion" promptText="Descripcion" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Precio" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="precio" fx:id="precio" promptText="Introduce el precio" />
+            <Separator prefWidth="200.0" />
+            <Label id="existenciaslabel" fx:id="existenciaslabel" prefHeight="17.0" prefWidth="149.0" text="Existencias" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="existencias" fx:id="existencias" promptText="Introducir Existencias" />
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+      <TableView id="merchtable" fx:id="merchtable" layoutX="48.0" layoutY="21.0" prefHeight="302.0" prefWidth="495.0">
+        <columns>
+          <TableColumn id="Idmerchrow" fx:id="Idmerchrow" prefWidth="75.0" text="Idmerch" />
+          <TableColumn id="preciorow" fx:id="preciorow" prefWidth="75.0" text="Precio" />
+            <TableColumn id="existenciasrow" fx:id="existenciasrow" prefWidth="75.0" text="Existencias" />
+            <TableColumn id="nombrerow" fx:id="nombrerow" prefWidth="75.0" text="Nombre" />
+            <TableColumn id="descripcionrow" fx:id="descripcionrow" prefWidth="194.0" text="Descripcion" />
+        </columns>
+      </TableView>
+      <Button id="añadir" fx:id="añadir" layoutX="48.0" layoutY="346.0" mnemonicParsing="false" onAction="#añadirmerch" prefHeight="51.0" prefWidth="127.0" text="Añadir" textFill="#124614">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button id="mod" fx:id="mod" layoutX="210.0" layoutY="346.0" mnemonicParsing="false" onAction="#modmerch" prefHeight="51.0" prefWidth="149.0" text="Modificar" textFill="#8a4f2a">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button id="aceptar" fx:id="aceptar" layoutX="48.0" layoutY="372.0" mnemonicParsing="false" onAction="#aceptar" prefHeight="51.0" prefWidth="204.0" text="Aceptar Añadir" textFill="#124614">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button id="cancelar" fx:id="cancelar" layoutX="309.0" layoutY="372.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="51.0" prefWidth="204.0" text="Cancelar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

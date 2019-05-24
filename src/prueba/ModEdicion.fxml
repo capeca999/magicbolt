@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.ModEdicionController">
+    <stylesheets>
+        <URL value="@modedicion.css" />
+    </stylesheets>
+   <children>
+      <TableView id="tablaedicion" fx:id="tablaedicion" layoutX="23.0" layoutY="26.0" prefHeight="326.0" prefWidth="265.0">
+         <columns>
+            <TableColumn id="Idtiporow" fx:id="Idedicionrow" prefWidth="75.0" text="Idedicion" />
+            <TableColumn id="nombrerow" fx:id="nombrerow" prefWidth="71.0" text="Nombre" />
+            <TableColumn id="fecharow" fx:id="fecharow" prefWidth="121.0" text="Fechalanzamiento " />
+         </columns>
+      </TableView>
+      <TextField id="nombreedicion" fx:id="nombreedicion" layoutX="376.0" layoutY="79.0" promptText="Nombre Edición" />
+      <Label layoutX="377.0" layoutY="52.0" prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="376.0" layoutY="1.0" prefHeight="17.0" prefWidth="149.0" text="IDEdición" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="idedicion" fx:id="idedicion" editable="false" layoutX="376.0" layoutY="28.0" promptText="ID Edición" />
+      <Button id="modificar" fx:id="modificar" layoutX="393.0" layoutY="251.0" mnemonicParsing="false" onAction="#modificartable" prefHeight="48.0" prefWidth="115.0" text="Modificar" textFill="#148318">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button id="eliminaredicion" fx:id="eliminaredicion" layoutX="393.0" layoutY="325.0" mnemonicParsing="false" onAction="#eliminaredicion" text="Eliminar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button id="añadirboton" fx:id="añadirboton" layoutX="393.0" layoutY="172.0" mnemonicParsing="false" onAction="#invisible" prefHeight="48.0" prefWidth="115.0" text="Añadir" textFill="#148318">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button id="aceptarboton" fx:id="aceptarboton" layoutX="283.0" layoutY="172.0" mnemonicParsing="false" onAction="#añadir" prefHeight="48.0" prefWidth="155.0" text="Aceptar Añadir" textFill="#148318">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button id="cancelarboton" fx:id="cancelarboton" layoutX="505.0" layoutY="172.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="48.0" prefWidth="115.0" text="Cancelar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <DatePicker id="fechalanza" fx:id="fechalanza" layoutX="373.0" layoutY="130.0" prefHeight="25.0" prefWidth="163.0" promptText="Fecha Lanzamiento" />
+      <Label layoutX="371.0" layoutY="102.0" prefHeight="27.0" prefWidth="164.0" text="Fecha Lanzamiento" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

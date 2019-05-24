@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.ModClienteController">
+    <stylesheets>
+        <URL value="@modcliente.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="577.0" layoutY="9.0" prefHeight="343.0" prefWidth="312.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Nombre" fx:id="Nombre" promptText="Introducir Nombre" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Apellidos" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Apellidos" fx:id="Apellidos" promptText="Apellidos" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Telefono" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="telefono" fx:id="telefono" promptText="Introduce el telefono" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Fecha Nacimiento" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="fnacimiento" fx:id="fnacimiento" prefHeight="25.0" prefWidth="221.0" promptText="Introduce tu fecha de nacimiento" />
+            <Label id="fechainsrow" fx:id="fechainsrow" prefHeight="17.0" prefWidth="149.0" text="Fecha Inscripcion" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="fins" fx:id="fins" prefHeight="25.0" prefWidth="224.0" promptText="Introduce tu fecha de inscripcion" />
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="DNI" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="DNI" fx:id="DNI" promptText="Introducir DNI" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Juez" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <RadioButton id="nojuez" fx:id="nojuez" mnemonicParsing="false" selected="true" text="No es Juez" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="juezv" />
+               </toggleGroup>
+            </RadioButton>
+            <Separator prefWidth="200.0" />
+            <RadioButton id="juz" fx:id="juez" mnemonicParsing="false" text="Es juez" textFill="WHITE" toggleGroup="$juezv">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </VBox>
+      <TableView id="clientetabla" fx:id="clientetabla" layoutX="11.0" layoutY="52.0" prefHeight="200.0" prefWidth="527.0">
+        <columns>
+          <TableColumn id="nombrerow" fx:id="nombrerow" prefWidth="75.0" text="Nombre" />
+          <TableColumn id="apellidosrow" fx:id="apellidosrow" prefWidth="75.0" text="Apellidos" />
+            <TableColumn id="telefonorow" fx:id="telefonorow" prefWidth="75.0" text="Telefono" />
+            <TableColumn id="fecharow" fx:id="fecharow" prefWidth="111.0" text="Fecha_nacimiento" />
+            <TableColumn id="fechainscrow" fx:id="fechainscrow" prefWidth="103.0" text="Fecha_inscripcion" />
+            <TableColumn id="dnirow" fx:id="dnirow" prefWidth="37.0" text="DNI" />
+            <TableColumn id="juezrow" fx:id="juezrow" minWidth="8.0" prefWidth="37.0" text="Juez" />
+        </columns>
+      </TableView>
+      <Button id="eliminarcliente" fx:id="eliminarcliente" layoutX="323.0" layoutY="301.0" mnemonicParsing="false" onAction="#eliminarcliente" text="Eliminar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button id="modificar" fx:id="modificar" layoutX="167.0" layoutY="301.0" mnemonicParsing="false" onAction="#modificartable" prefHeight="48.0" prefWidth="115.0" text="Modificar" textFill="#148318">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

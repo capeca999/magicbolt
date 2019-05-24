@@ -42,8 +42,6 @@ public class PruebaController implements Initializable {
     private Label label;
     @FXML
     private AnchorPane principal;
-    @FXML
-    private MenuItem menuitemdentro;
     private RadioMenuItem opc1;
     @FXML
     private TextField cambioid;
@@ -74,12 +72,12 @@ public class PruebaController implements Initializable {
     private void abrirventana(ActionEvent event) {
         try{
             String todo="hola";
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu2.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FiltrarCartas.fxml"));
             Parent root1 = (Parent)fxmlLoader.load();
             Stage stage = new Stage();
-            Menu2Controller controller = fxmlLoader.<Menu2Controller>getController();
+            FiltrarCartasController controller = fxmlLoader.<FiltrarCartasController>getController();
             
-            controller.initVariable(todo);
+        
             stage.setScene(new Scene(root1));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
@@ -228,7 +226,7 @@ public class PruebaController implements Initializable {
            }
            else 
               try{
-            String todo="hola";
+        
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AñadirEmpleado.fxml"));
             Parent root1 = (Parent)fxmlLoader.load();
             Stage stage = new Stage();
@@ -283,7 +281,7 @@ public class PruebaController implements Initializable {
            }
            else 
               try{
-            String todo="hola";
+       
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modempelado.fxml"));
             Parent root1 = (Parent)fxmlLoader.load();
             Stage stage = new Stage();
@@ -329,12 +327,147 @@ public class PruebaController implements Initializable {
             
         }
         
-        catch(Exception ex){
+        catch(IOException ex){
             ex.getMessage();
         }
         
         
     }
+
+    @FXML
+    private void abrirmodcliente(ActionEvent event) {
+        try{
+              FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ModCliente.fxml"));
+              Parent root1 = (Parent)fxmlLoader.load();
+              Stage stage = new Stage();
+              ModClienteController controller = fxmlLoader.<ModClienteController>getController();
+              stage.setScene(new Scene(root1));
+              stage.initModality(Modality.APPLICATION_MODAL);
+              stage.show();
+              
+        }
+          catch(IOException ex){
+            ex.getMessage();
+        }
+        
+        
+        
+    }
+
+    @FXML
+    private void abrirmodtipo(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader (getClass().getResource("AñadirModTipo.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            AñadirModTipoController controller = fxmlLoader.<AñadirModTipoController>getController();
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }
+          catch(IOException ex){
+            ex.getMessage();
+        }
+        
+        
+    }
+
+    @FXML
+    private void abrirmodsubtipo(ActionEvent event) {
+         try{
+            FXMLLoader fxmlLoader = new FXMLLoader (getClass().getResource("ModSubtipo.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            ModSubtipoController controller = fxmlLoader.<ModSubtipoController>getController();
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }
+          catch(IOException ex){
+            ex.getMessage();
+        }
+        
+        
+        
+    }
+
+    @FXML
+    private void abriredicion(ActionEvent event) {
+      try{
+            FXMLLoader fxmlLoader = new FXMLLoader (getClass().getResource("ModEdicion.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            ModEdicionController controller = fxmlLoader.<ModEdicionController>getController();
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }
+          catch(IOException ex){
+            ex.getMessage();
+        }   
+    }
+
+    @FXML
+    private void abrirañadirevento(ActionEvent event) {
+        
+        
+          try{
+            FXMLLoader fxmlLoader = new FXMLLoader (getClass().getResource("AñadirEvento.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            AñadirEventoController controller = fxmlLoader.< AñadirEventoController>getController();
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }
+          catch(IOException ex){
+            ex.getMessage();
+        }   
+    }
+
+    @FXML
+    private void abrirmodpedido(ActionEvent event) {
+        
+          try{
+            FXMLLoader fxmlLoader = new FXMLLoader (getClass().getResource("ModificarPedidos.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            ModificarPedidosController controller = fxmlLoader.<ModificarPedidosController>getController();
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }
+          catch(IOException ex){
+            ex.getMessage();
+        }   
+    }
+
+    @FXML
+    private void abrirmodmerch(ActionEvent event) {
+          try{
+            FXMLLoader fxmlLoader = new FXMLLoader (getClass().getResource("ModMerch.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            ModMerchController controller = fxmlLoader.<ModMerchController>getController();
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        }
+          catch(IOException ex){
+            ex.getMessage();
+        }   
+    }
+    }
+
+        
+        
+        
+    
+        
     
     
-}
+    
+    
+    
+    
+

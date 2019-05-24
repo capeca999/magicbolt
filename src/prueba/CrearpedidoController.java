@@ -51,6 +51,7 @@ public class CrearpedidoController implements Initializable {
      public void initVariable(String id){
     
         idempleado.setText(id);
+        
     }
   @FXML
     public void findid(ActionEvent event){

@@ -87,7 +87,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="424.0" layoutY="350.0" mnemonicParsing="false" onAction="#añadirempleado" prefHeight="60.0" prefWidth="121.0" text="Añadir Cliente" textFill="RED">
+      <Button layoutX="424.0" layoutY="350.0" mnemonicParsing="false" onAction="#añadirempleado" prefHeight="60.0" prefWidth="121.0" text="Añadir Empleado" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

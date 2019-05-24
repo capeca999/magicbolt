@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.ModificarPedidosController">
+    <stylesheets>
+        <URL value="@modificarpedidos.css" />
+    </stylesheets>
+   <children>
+      <TableView id="tablapedido" fx:id="tablapedido" layoutX="25.0" layoutY="38.0" prefHeight="200.0" prefWidth="300.0">
+        <columns>
+          <TableColumn id="Idpedidorow" fx:id="Idpedidorow" prefWidth="75.0" text="Idpedido" />
+          <TableColumn id="Idclienterow" fx:id="Idclienterow" prefWidth="75.0" text="Idcliente" />
+            <TableColumn id="empleadorow" fx:id="empleadorow" prefWidth="75.0" text="Empleado" />
+            <TableColumn id="Fecharow" fx:id="Fecharow" prefWidth="75.0" text="Fecha" />
+        </columns>
+      </TableView>
+      <TextField id="Idcliente" fx:id="Idcliente" layoutX="388.0" layoutY="50.0" />
+      <TextField id="Idempleado" fx:id="Idempleado" layoutX="389.0" layoutY="104.0" />
+      <DatePicker id="fechapedido" fx:id="fechapedido" layoutX="383.0" layoutY="165.0" prefHeight="25.0" prefWidth="160.0" />
+      <Label layoutX="388.0" layoutY="25.0" prefHeight="17.0" prefWidth="149.0" text="Nombre Cliente" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="389.0" layoutY="75.0" prefHeight="17.0" prefWidth="149.0" text="Nombre Empleado" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="388.0" layoutY="138.0" prefHeight="17.0" prefWidth="149.0" text="Fecha Pedido" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="25.0" layoutY="297.0" mnemonicParsing="false" onAction="#modlineas" prefHeight="47.0" prefWidth="221.0" text="Modificar Lineas" textFill="#0f4312">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="268.0" layoutY="297.0" mnemonicParsing="false" onAction="#eliminarpedido" prefHeight="48.0" prefWidth="196.0" text="Eliminar Pedido" textFill="RED">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

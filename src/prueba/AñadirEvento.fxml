@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="296.0" prefWidth="630.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.AñadirEventoController">
+    <stylesheets>
+        <URL value="@añadirevento.css" />
+    </stylesheets>
+   <children>
+      <TextField id="idjuezfield" fx:id="idjuezfield" editable="false" layoutX="444.0" layoutY="51.0" />
+      <TableView id="jueztable" fx:id="jueztable" layoutX="8.0" layoutY="19.0" prefHeight="259.0" prefWidth="233.0">
+        <columns>
+          <TableColumn id="nombrerow" fx:id="nombrerow" prefWidth="75.0" text="Nombre" />
+          <TableColumn id="apellidorow" fx:id="apellidorow" prefWidth="75.0" text="Apellido" />
+            <TableColumn id="DNIrow" fx:id="DNIrow" prefWidth="75.0" text="DNI" />
+        </columns>
+      </TableView>
+      <Label layoutX="444.0" layoutY="25.0" text="ID Juez" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea id="descripcionfield" fx:id="descripcionfield" layoutX="421.0" layoutY="127.0" prefHeight="99.0" prefWidth="195.0" />
+      <VBox layoutX="254.0" layoutY="23.0" prefHeight="200.0" prefWidth="143.0">
+         <children>
+            <Label text="ID Evento" textFill="#e4ff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="ideventofield" fx:id="ideventofield" editable="false" />
+            <Label text="Fecha Evento" textFill="#e4ff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="fechaevento" fx:id="fechaevento" prefHeight="25.0" prefWidth="150.0" />
+            <Label text="Premio" textFill="#e4ff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="premiofield" fx:id="premiofield" prefHeight="44.0" prefWidth="143.0" />
+            <Label text="Formato" textFill="#e4ff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox id="formatocombo" fx:id="formatocombo" prefHeight="54.0" prefWidth="143.0" />
+         </children>
+      </VBox>
+      <Label layoutX="421.0" layoutY="100.0" text="Descripción" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="429.0" layoutY="235.0" mnemonicParsing="false" onAction="#añadir" prefHeight="39.0" prefWidth="77.0" text="Añadir" textFill="#0e4615">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

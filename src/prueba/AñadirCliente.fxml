@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -8,12 +9,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="prueba.AñadirClienteController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.AñadirClienteController">
     <stylesheets>
         <URL value="@añadircliente.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="49.0" layoutY="50.0" prefHeight="332.0" prefWidth="177.0">
+      <VBox layoutX="49.0" layoutY="9.0" prefHeight="332.0" prefWidth="177.0">
          <children>
             <Label prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
                <font>
@@ -48,6 +49,12 @@
                </font>
             </Label>
             <DatePicker id="fnacimiento" fx:id="fnacimiento" promptText="Introduce tu fecha de nacimiento" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Fecha_Inscripcion" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker id="finscri" fx:id="finscri" promptText="Introduce tu fecha de Inscripcion" />
             <Label prefHeight="17.0" prefWidth="149.0" text="Juez" textFill="#fffb00">
                <font>
                   <Font size="18.0" />
@@ -69,14 +76,14 @@
             </RadioButton>
          </children>
       </VBox>
-      <Label layoutX="226.0" layoutY="14.0" prefHeight="31.0" prefWidth="214.0" text="Añadir Clientes" textFill="#fffb00">
+      <Label layoutX="372.0" layoutY="9.0" prefHeight="31.0" prefWidth="214.0" text="Añadir Clientes" textFill="#fffb00">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button id="añadir" fx:id="añadir" layoutX="243.0" layoutY="308.0" mnemonicParsing="false" onAction="#añadircliente" prefHeight="58.0" prefWidth="98.0" text="Añadir Cliente" textFill="RED">
+      <Button id="añadir" fx:id="añadir" layoutX="269.0" layoutY="315.0" mnemonicParsing="false" onAction="#añadircliente" prefHeight="58.0" prefWidth="98.0" text="Añadir Cliente" textFill="#44794b">
          <font>
-            <Font size="11.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Button>
    </children>

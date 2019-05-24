@@ -5,6 +5,13 @@
  */
 package prueba;
 
+import DAO.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author paco
@@ -18,10 +25,12 @@ public class Tipo {
         this.Nombre = Nombre;
     }
     
-    public Tipo(String Nombre){
+    public Tipo (String Nombre){
+        this.Idtipo=0;
         this.Nombre=Nombre;
     }
-
+    
+ 
     public int getIdtipo() {
         return Idtipo;
     }
@@ -42,4 +51,31 @@ public class Tipo {
         return this.Nombre;
     }
     
+    
+     public static void llenarTipo(ObservableList <Tipo> lista){
+        Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        ResultSet rs;
+        ResultSet rs2;
+        PreparedStatement stmt=null;
+        PreparedStatement stmt2=null;
+        boolean fin=false;
+        try{
+         //   Idtipo	Nombre
+        stmt= con.prepareStatement("SELECT * from tipo");
+            stmt.executeQuery();
+            rs= stmt.executeQuery();
+    while (rs.next()){
+        lista.add(new Tipo(rs.getInt(1), rs.getString(2)));
+        
+    }
 }
+         catch(SQLException exx){
+        exx.getMessage();
+    }
+        
+     }
+     
+}
+
+

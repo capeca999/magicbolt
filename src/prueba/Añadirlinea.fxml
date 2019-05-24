@@ -54,11 +54,11 @@
       </Label>
       <VBox layoutX="510.0" layoutY="15.0" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <TextField id="idclientefield" fx:id="idclientefield" prefHeight="25.0" prefWidth="51.0" />
+            <TextField id="idclientefield" fx:id="idclientefield" editable="false" prefHeight="25.0" prefWidth="51.0" />
             <Label />
-            <TextField id="idempleadofield" fx:id="idempleadofield" prefHeight="25.0" prefWidth="51.0" />
+            <TextField id="idempleadofield" fx:id="idempleadofield" editable="false" prefHeight="25.0" prefWidth="51.0" />
             <Label />
-            <TextField id="idpedidofield" fx:id="idpedidofield" prefHeight="25.0" prefWidth="51.0" />
+            <TextField id="idpedidofield" fx:id="idpedidofield" editable="false" prefHeight="25.0" prefWidth="51.0" />
          </children>
       </VBox>
       <Label layoutX="397.0" layoutY="97.0" text="ID Pedido" textFill="#e4ff00">
@@ -67,5 +67,6 @@
          </font>
       </Label>
       <Button layoutX="279.0" layoutY="361.0" mnemonicParsing="false" onAction="#crearpedido" prefHeight="25.0" prefWidth="72.0" text="Crear Pedido" />
+      <Button layoutX="450.0" layoutY="225.0" mnemonicParsing="false" onAction="#switchtoo" prefHeight="25.0" prefWidth="142.0" text="Añadir Merchandasing" />
    </children>
 </AnchorPane>

@@ -18,13 +18,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -37,6 +42,8 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -138,9 +145,7 @@ String cartabuscar="";
                 }
              
                 else{
-                    if (list.contains(carta.getIdcarta())){
-                        
-                    }
+                  
                 
                 
                  resultadodialogo=result.get();
@@ -153,7 +158,12 @@ String cartabuscar="";
             area+=carta.getNombre();
             area+=" ";
                   area+="\n"; 
-                  area+="ID EDICION";
+            area+="CANTIDAD: ";
+            area+=Integer.parseInt(result.get());
+            
+            area+=" ";
+            area+="\n";
+            area+="ID EDICION";
             area+=carta.getIdedicion();
             area+=" ";
             area+="\n";
@@ -163,7 +173,7 @@ String cartabuscar="";
             area+="PRECIO: " + Double.parseDouble(resultadodialogo)*carta.getPrecio();
             
             //Double.parseDouble()
-           list.add(carta.getIdedicion());
+          
             
           //  area+= carta.getPrecio()*Double.parseDouble();
             area+="\n";
@@ -188,101 +198,7 @@ String cartabuscar="";
             catch(SQLException exx){
                 exx.getMessage();
             }
-            
-            /*
-            try{
-            PreparedStatement
-            Conexion conexion = new Conexion();
-            Connection con = conexion.conectar();
-            boolean error=false;
-            if (!contrasenyap.getText().equals(contrasenyas.getText())){
-            
-            alert.setTitle("CONTRASENYA ERROR");
-            alert.setHeaderText("CONTRASENYA ERROR");
-            alert.setContentText("La contrasenya no son las mismas, introducela de nuevo");
-            alert.showAndWait();
-            contrasenyap.clear();
-            contrasenyas.clear();
-            
-            }
-            else{
-            try{
-            PreparedStatement stmt2 = con.prepareStatement("INSERT INTO empleado (Apellido, Nombre, Fnacimiento, Fcontrato, Telefono, password, admin) VALUES(?,?,?,?,?,?,?)");
-            if (Apellidos.getText().isEmpty()){
-            
-            errortext+="EL CAMPO APELLIDOS NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            // alert.showAndWait();
-            }
-            if(Nombre.getText().isEmpty()){
-            errortext+="EL CAMPO NOMBRE NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            }
-            
-            if (fnacimiento.getValue() == null){
-            errortext+="EL CAMPO FECHA DE NACIMIENTO NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            }
-            
-            if (fcontrato.getValue() == null){
-            errortext+="EL CAMPO DE FECHA DE CONTRATO NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            }
-            
-            if (contrasenyap.getText().isEmpty()){
-            errortext+="EL CAMPO DE CONTRASEÑA NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            }
-            
-            
-            }*/
-            
-            /*
-            else{
-            try{
-            PreparedStatement stmt2 = con.prepareStatement("INSERT INTO empleado (Apellido, Nombre, Fnacimiento, Fcontrato, Telefono, password, admin) VALUES(?,?,?,?,?,?,?)");
-            if (Apellidos.getText().isEmpty()){
-            
-            errortext+="EL CAMPO APELLIDOS NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            // alert.showAndWait();
-            }
-            if(Nombre.getText().isEmpty()){
-            errortext+="EL CAMPO NOMBRE NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            }
-            
-            if (fnacimiento.getValue() == null){
-            errortext+="EL CAMPO FECHA DE NACIMIENTO NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            }
-            
-            if (fcontrato.getValue() == null){
-            errortext+="EL CAMPO DE FECHA DE CONTRATO NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            }
-            
-            if (contrasenyap.getText().isEmpty()){
-            errortext+="EL CAMPO DE CONTRASEÑA NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
-            error=true;
-            }
-            */
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+          
             
             
             
@@ -454,6 +370,40 @@ String cartabuscar="";
         
         
         */
+
+    @FXML
+    private void switchtoo(ActionEvent event) {
+        
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Añadirlineamerch.fxml"));
+            Parent root1 = (Parent)fxmlLoader.load();
+            Stage stage = new Stage();
+            AñadirlineamerchController controller = fxmlLoader.<AñadirlineamerchController>getController();
+            String pasarid="";
+            String idclientepasar="";
+            int idpedidopasar=0;
+            pasarid= idempleadofield.getText();
+            idclientepasar= idclientefield.getText();
+            idpedidopasar =Integer.parseInt(idpedidofield.getText());
+            
+            controller.initVariable(pasarid, idclientepasar, idpedidopasar, area);
+            stage.setScene(new Scene(root1));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+                    /*           private TextField idclientefield;
+                    @FXML
+                    private TextField idempleadofield;
+                    @FXML
+                    private TextField idpedidofield;*/
+          //   public void initVariable(String idemp, String idcli, int idpedido)
+            
+            
+        }
+          catch (IOException ex){
+                Logger.getLogger(CrearpedidoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }
         
         
         

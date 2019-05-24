@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="476.0" prefWidth="1543.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.ConsultarCartaController">
+    <stylesheets>
+        <URL value="@consultarcarta.css" />
+    </stylesheets>
+   <children>
+      <TableView id="tablacarta" fx:id="tablacarta" layoutX="14.0" layoutY="3.0" prefHeight="375.0" prefWidth="982.0">
+        <columns>
+            <TableColumn id="idcartarow" fx:id="idcartarow" prefWidth="48.0" text="IdCarta" />
+          <TableColumn id="nombrerow" fx:id="nombrerow" prefWidth="102.0" text="Nombre" />
+          <TableColumn id="edicionrow" fx:id="edicionrow" prefWidth="75.0" text="Edicion" />
+            <TableColumn id="existenciasrow" fx:id="existenciasrow" prefWidth="68.0" text="Existencias" />
+            <TableColumn id="manarow" fx:id="manarow" prefWidth="82.0" text="Mana" />
+            <TableColumn id="tiporow" fx:id="tiporow" prefWidth="75.0" text="Tipo" />
+            <TableColumn id="subtiporow" fx:id="subtiporow" prefWidth="75.0" text="Subtipo" />
+            <TableColumn id="artistarow" fx:id="artistarow" prefWidth="65.0" text="Artista" />
+            <TableColumn id="lealdadrow" fx:id="lealdadrow" prefWidth="60.0" text="Lealdad" />
+            <TableColumn id="ataquerow" fx:id="ataquerow" minWidth="0.0" prefWidth="52.0" text="Ataque" />
+            <TableColumn id="defensarow" fx:id="defensarow" prefWidth="76.0" text="Defensa" />
+            <TableColumn id="foilrow" fx:id="foilrow" prefWidth="37.0" text="Foil" />
+            <TableColumn id="preciorow" fx:id="preciorow" prefWidth="55.0" text="Precio" />
+            <TableColumn id="descrow" fx:id="descrow" prefWidth="110.0" text="Descripcion" />
+        </columns>
+      </TableView>
+      <TextField id="idcartafield" fx:id="idcartafield" layoutX="1019.0" layoutY="40.0" />
+      <Label layoutX="1009.0" layoutY="14.0" text="ID Carta" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="nombrefield" fx:id="nombrefield" layoutX="1019.0" layoutY="92.0" />
+      <Label layoutX="1019.0" layoutY="65.0" text="Nombre" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1019.0" layoutY="125.0" text="Edicion" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1019.0" layoutY="185.0" text="Existencias" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="existenciasfield" fx:id="existenciasfield" layoutX="1019.0" layoutY="212.0" />
+      <Label layoutX="1019.0" layoutY="244.0" text="Mana" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="manafield" fx:id="manafield" layoutX="1019.0" layoutY="271.0" />
+      <TextField id="ataquefield" fx:id="ataquefield" layoutX="1183.0" layoutY="271.0" />
+      <Label layoutX="1183.0" layoutY="244.0" text="Ataque" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="lealdadfield" fx:id="lealdadfield" layoutX="1183.0" layoutY="212.0" />
+      <Label layoutX="1183.0" layoutY="185.0" text="Lealdad" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="artistafield" fx:id="artistafield" layoutX="1183.0" layoutY="152.0" />
+      <Label layoutX="1183.0" layoutY="125.0" text="Artista" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1183.0" layoutY="65.0" text="Subtipo" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1183.0" layoutY="14.0" text="Tipo" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1346.0" layoutY="14.0" text="Defensa" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="defensafield" fx:id="defensafield" layoutX="1347.0" layoutY="41.0" />
+      <Label layoutX="1346.0" layoutY="125.0" text="Foil" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton id="sifoil" fx:id="sifoil" layoutX="1348.0" layoutY="155.0" mnemonicParsing="false" text="Foil" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="foilono" />
+         </toggleGroup>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton id="nofoil" fx:id="nofoil" layoutX="1347.0" layoutY="181.0" mnemonicParsing="false" text="No foil" textFill="WHITE" toggleGroup="$foilono">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </RadioButton>
+      <ImageView id="imagencarta" fx:id="imagencarta" fitHeight="150.0" fitWidth="200.0" layoutX="1371.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../placeholder.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="1038.0" layoutY="331.0" mnemonicParsing="false" onAction="#modificar" prefHeight="43.0" prefWidth="112.0" text="MODIFICAR" textFill="#1a5722">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="1202.0" layoutY="331.0" mnemonicParsing="false" onAction="#eliminarcarta" prefHeight="43.0" prefWidth="112.0" text="Eliminar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+      <TextArea id="descriparea" fx:id="descriparea" layoutX="1371.0" layoutY="378.0" prefHeight="81.0" prefWidth="149.0" />
+      <Label layoutX="1368.0" layoutY="353.0" text="Descripción" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="preciofield" fx:id="preciofield" layoutX="1348.0" layoutY="93.0" />
+      <Label layoutX="1347.0" layoutY="66.0" text="Precio" textFill="#e4ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox id="subtipofield" fx:id="subtipofield" layoutX="1183.0" layoutY="93.0" prefWidth="150.0" />
+      <ComboBox id="tipofield" fx:id="tipofield" layoutX="1183.0" layoutY="40.0" prefWidth="150.0" />
+      <ComboBox id="edicionfield" fx:id="edicionfield" layoutX="1019.0" layoutY="152.0" prefWidth="150.0" />
+      <TextField id="statementanterior" fx:id="statementanterior" layoutX="14.0" layoutY="434.0" />
+      <Button layoutX="1446.0" layoutY="178.0" mnemonicParsing="false" onAction="#search" text="SEARCH" />
+   </children>
+</AnchorPane>

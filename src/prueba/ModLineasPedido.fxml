@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="prueba.ModLineasPedidoController">
+    <stylesheets>
+        <URL value="@modlineaspedido.css" />
+    </stylesheets>
+   <children>
+      <TableView id="tablalinea" fx:id="tablalinea" layoutX="6.0" layoutY="7.0" prefHeight="313.0" prefWidth="430.0">
+        <columns>
+          <TableColumn id="Idlinearow" fx:id="Idlinearow" prefWidth="75.0" text="Idlinea" />
+          <TableColumn id="Pedidorow" fx:id="Pedidorow" prefWidth="75.0" text="Pedido" />
+            <TableColumn id="Cartarow" fx:id="Cartarow" prefWidth="75.0" text="Carta" />
+            <TableColumn id="Preciorow" fx:id="Preciorow" prefWidth="75.0" text="Precio" />
+            <TableColumn id="Cantidadrow" fx:id="Cantidadrow" prefWidth="77.0" text="Cantidad" />
+        </columns>
+      </TableView>
+      <VBox layoutX="442.0" layoutY="40.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="149.0" text="ID Linea" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Idlinea" fx:id="Idlinea" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="ID Pedido" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Idpedido" fx:id="Idpedido" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Carta" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Cartalinea" fx:id="Cartalinea" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Precio" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Preciolinea" fx:id="Preciolinea" />
+            <Label prefHeight="17.0" prefWidth="149.0" text="Cantidad" textFill="#fffb00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="Cantidadlinea" fx:id="Cantidadlinea" />
+         </children>
+      </VBox>
+      <Button layoutX="188.0" layoutY="332.0" mnemonicParsing="false" onAction="#eliminarlinea" prefHeight="54.0" prefWidth="205.0" text="Eliminar Linea">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

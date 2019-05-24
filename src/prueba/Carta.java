@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *
@@ -35,7 +37,34 @@ public class Carta {
     private String Edicion;
     private boolean Foil;
     private int idedicion;
+    private String Subtiponombre;
+    private String Tiponombre;
 
+   
+
+
+
+    public Carta(int Idcarta, double Precio, int Existencias, String Nombre, String Descripcion, String Mana, String Artista, String Imagen, int Lealdad, double Ataque, double Defensa, String Edicion, boolean Foil, String Subtiponombre, String Tiponombre) {
+        this.Idcarta = Idcarta;
+        this.Precio = Precio;
+        this.Existencias = Existencias;
+        this.Nombre = Nombre;
+        this.Descripcion = Descripcion;
+        this.Mana = Mana;
+        this.Artista = Artista;
+        this.Imagen = Imagen;
+        this.Lealdad = Lealdad;
+        this.Ataque = Ataque;
+        this.Defensa = Defensa;
+        this.Edicion = Edicion;
+        this.Foil = Foil;
+        this.Subtiponombre = Subtiponombre;
+        this.Tiponombre = Tiponombre;
+    }
+    
+    
+    
+    
     public Carta(int Idcarta, double Precio, int Existencias, String Nombre, String Edicion, boolean Foil, int idedicion) {
         this.Idcarta = Idcarta;
         this.Precio = Precio;
@@ -76,6 +105,23 @@ public class Carta {
         this.idedicion = idedicion;
     }
 
+    public void setSubtiponombre(String Subtiponombre) {
+        this.Subtiponombre = Subtiponombre;
+    }
+
+    public void setTiponombre(String Tiponombre) {
+        this.Tiponombre = Tiponombre;
+    }
+
+    public String getSubtiponombre() {
+        return Subtiponombre;
+    }
+
+    public String getTiponombre() {
+        return Tiponombre;
+    }
+
+    
     public int getIdedicion() {
         return idedicion;
     }
@@ -240,7 +286,7 @@ public class Carta {
         ResultSet rs2;
         PreparedStatement stmt=null;
         PreparedStatement stmt2=null;
-        boolean fin=false;
+      
         try{
          
      
@@ -286,9 +332,126 @@ public class Carta {
          exx.getMessage();
      }
     }
+    
+    public static void llenarCartaMod(ObservableList <Carta> lista, String statemententero){
+     Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        ResultSet rs;
+        ResultSet rs2;
+        ResultSet rs3;
+        ResultSet rs4;
+        PreparedStatement stmt=null;
+        PreparedStatement stmt2=null;
+        PreparedStatement stmt3=null;
+        PreparedStatement stmt4=null;
+        Statement stmtt=null;
+        String resulsetentero="";
+        String edicionentero="";
+        String subtipoentero="";
+        String tipoentero="";
+    try{
+        
+        /*      stmt= con.prepareStatement("SELECT Nombre, Edicion, Foil, Existencias, Idcarta, Precio from carta where LOWER(Nombre) LIKE \""+'%'+carta+'%'+"\"");
+        stmt.executeQuery();
+        rs= stmt.executeQuery();*/
+        System.out.println(statemententero);
+        stmt=con.prepareStatement(statemententero);
+        stmt.executeQuery();
+        rs=stmt.executeQuery();
+        while (rs.next()){
+             stmt3=con.prepareStatement("SELECT Nombre from edicion where Idedicion= ?");
+           stmt3.setInt(1, rs.getInt(14));
+           stmt3.executeQuery();
+           rs3=stmt3.executeQuery();
+         
+           
+           if (!rs3.next()){
+            edicionentero="NoEdicion";
+           }
+           else {
+               edicionentero=rs3.getString(1);
+           }
+           
+                  stmt4=con.prepareStatement("SELECT Nombre from subtipo where Idsubtipo= ?");
+          stmt4.setInt(1, rs.getInt(8));
+          rs4=stmt4.executeQuery();
+          
+          if (!rs4.next()){
+              subtipoentero="NoSubtipo";
+          }
+          else{
+              subtipoentero=rs4.getString(1);
+          }
+          
+            stmt2=con.prepareStatement("SELECT Nombre from tipo where Idtipo= ?");
+            stmt2.setInt(1, rs.getInt(7));
+            stmt2.executeQuery();
+            rs2=stmt2.executeQuery();
+          
+            
+            if (!rs2.next()){
+            tipoentero="NoTipo";
+            }
+            
+            else{
+                tipoentero=rs2.getString(1);
+                System.out.println(tipoentero);
+                System.out.println("tipoentero");
+            }
+            
+          
+           
    
+          
+          //rs3.getString(1), rs.getBoolean(13), rs4.getString(1), rs2.getString(1)
+     //    1                  2       3           4           5            6       7       8   9       10      11      12      13      14      15
+	//Idcarta	Precio	Existencias	Nombre	Descripcion	Mana	Tipo	Subtipo	Artista	Imagen	Lealdad	Ataque	Defensa	Edicion	Foil 
+       
+          lista.add(new Carta (rs.getInt(1), rs.getDouble(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getDouble(12), rs.getDouble(13),  edicionentero , rs.getBoolean(15), subtipoentero, tipoentero ));
+          //                    1               2               3               4               5                   6               7               8               9               10              11                  12                  13              14                  15        
+                  /* this.Idcarta = Idcarta; 1
+                  this.Precio = Precio; 2
+                  this.Existencias = Existencias; 3
+                  this.Nombre = Nombre; 4
+                  this.Descripcion = Descripcion; 5 
+                  this.Mana = Mana; 6 
+                  this.Artista = Artista;7 
+                  this.Imagen = Imagen; 8
+                  this.Lealdad = Lealdad; 9 
+                  this.Ataque = Ataque; 10
+                  this.Defensa = Defensa; 11 
+                  this.Edicion = Edicion;12 
+                  this.Foil = Foil;13 
+                  this.Subtiponombre = Subtiponombre;14
+                  this.Tiponombre = Tiponombre;*/ //15
+    }
     
-    
+                   /*    stmt2= con.prepareStatement("SELECT Nombre from Edicion where Idedicion = ?");
+                   stmt2.setInt(1, rs.getInt(2));
+                   stmt2.executeQuery();
+                   rs2= stmt2.executeQuery();
+                   rs2.next();*/
+        }
+        catch(SQLException exx){
+         exx.getMessage();
+            System.out.println(exx.getMessage());
+     }
+          
+    }
+ 
+        /*   nombrerow.setCellValueFactory(new PropertyValueFactory<Carta, String>("Nombre"));
+        edicionrow.setCellValueFactory(new PropertyValueFactory<Carta, String>("Edicion"));
+        existenciasrow.setCellValueFactory(new PropertyValueFactory<Carta, Integer>("Existencias"));
+        manarow.setCellValueFactory(new PropertyValueFactory<Carta, String>("Mana"));
+        tiporow.setCellValueFactory(new PropertyValueFactory<Carta, String>("Tipo"));
+        subtiporow.setCellValueFactory(new PropertyValueFactory<Carta, String>("Subtipo"));
+        artistarow.setCellValueFactory(new PropertyValueFactory<Carta, String>("Artista"));
+        lealdadrow.setCellValueFactory(new PropertyValueFactory<Carta, Integer>("Lealdad"));
+        ataquerow.setCellValueFactory(new PropertyValueFactory<Carta, Double>("Ataque"));
+        defensarow.setCellValueFactory(new PropertyValueFactory<Carta, Double>("Defensa"));
+        foilrow.setCellValueFactory(new PropertyValueFactory<Carta, Boolean>("Foil"));*/
     
     
 }
+    
+

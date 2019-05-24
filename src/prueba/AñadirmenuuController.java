@@ -56,7 +56,12 @@ import javax.imageio.ImageIO;
  * @author paco
  */
 public class AñadirmenuuController implements Initializable {
-
+    
+      Alert alert = new Alert (Alert.AlertType.ERROR);
+   Alert alertcampo = new Alert (Alert.AlertType.ERROR);
+    Alert alertconf = new Alert (Alert.AlertType.CONFIRMATION);
+String errortext="";
+boolean correcto=true;
     String blancoos = "";
     String azull = "";
     String negroo = "";
@@ -124,6 +129,7 @@ public class AñadirmenuuController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    boolean selectedimage=false;
     @FXML
     private ImageView manablanco;
     @FXML
@@ -251,6 +257,7 @@ public class AñadirmenuuController implements Initializable {
 
             subtipo subtipoo = new subtipo("No subtipo");
             subtipoc.add(subtipoo);
+            subtipo.setValue(subtipoo);
 
         } catch (SQLException exx) {
             exx.getMessage();
@@ -276,6 +283,7 @@ public class AñadirmenuuController implements Initializable {
 
             Edicion edicion = new Edicion("No edición");
             edicionc.add(edicion);
+            Edicion.setValue(edicion);
 
         } catch (SQLException exx) {
             exx.getMessage();
@@ -417,11 +425,11 @@ public class AñadirmenuuController implements Initializable {
         String negro = negrolabel.getText();
         int result = Integer.parseInt(negro);
 
-        System.out.println("hola");
+    
         System.out.println(result);
         if (result == 0) {
             mananegro.setVisible(false);
-            loyalidad.setVisible(false);
+       
         } else {
             mananegro.setVisible(true);
         }
@@ -460,6 +468,25 @@ public class AñadirmenuuController implements Initializable {
             manarojo.setVisible(false);
         } else {
             manarojo.setVisible(true);
+        }
+        String manaincolorocambio = manaincolorolabel.getText();
+        result = Integer.parseInt(manaincolorocambio);
+        
+        if (result==0){
+            manaincoloro.setVisible(false);
+        }
+        else{
+            manaincoloro.setVisible(true);
+        }
+        
+        String manaxx = manaxlabel.getText();
+        result = Integer.parseInt(manaxx);
+        if (result==0){
+            manaxlabel.setVisible(false);
+            
+        }
+        else{
+            manaxlabel.setVisible(true);
         }
 
     }
@@ -577,7 +604,9 @@ public class AñadirmenuuController implements Initializable {
     }
 
     @FXML
-    private void onOpen(ActionEvent event) throws FileNotFoundException {
+    private void onOpen(ActionEvent event)  {
+try{
+   
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Abrir fichero");
@@ -588,14 +617,19 @@ public class AñadirmenuuController implements Initializable {
             Image image = new Image(new FileInputStream(selectedFile.getAbsolutePath()));
             String ruta = "";
             rutaimagen = selectedFile.getAbsolutePath();
-
+           
             //   FileInputStream inputstream = new FileInputStream(selectedFile.getAbsolutePath());
             //   Path path = Paths.get(selectedFile.getAbsolutePath());
             //       Image image = new Image(new FileInputStream(inputstream));
             imagencarta.setImage(image);
+             selectedimage=true;
             System.out.println("Conseguido");
-
         }
+       
+        }
+ catch (FileNotFoundException exx){
+              exx.getMessage();
+                }
 
         /*    String path="";
         
@@ -616,51 +650,13 @@ public class AñadirmenuuController implements Initializable {
         //  fileChooser.showOpenDialog(stage);
     }
 
-    @FXML
-    private void comprobartipocarta(ActionEvent event) {
-        if (criaturaradio.isSelected()) {
-//             AnchorPane.getChildren().clear();
-
-            nombrecarta.clear();
-            tipo.setValue(null);
-            subtipo.setValue(null);
-            Edicion.setValue(null);
-            artista.clear();
-            loyalidad.clear();
-            ataque.clear();
-            defensa.clear();
-            blancolabel.setText("0");
-            negrolabel.setText("0");
-            azullabel.setText("0");
-
-            loyalidad.setVisible(false);
-            ataque.setVisible(true);
-            defensa.setVisible(true);
-            menumana.setVisible(true);
-            menuañadirmana.setVisible(true);
-            menuañadirmana1.setVisible(true);
-
-        } else if (tierraradio.isSelected()) {
-            //    AnchorPane.getChildren().clear();
-            loyalidad.setVisible(false);
-            ataque.setVisible(false);
-            defensa.setVisible(false);
-            menumana.setVisible(false);
-            menuañadirmana.setVisible(false);
-            menuañadirmana1.setVisible(false);
-        } else {
-            //    AnchorPane.getChildren().clear();
-            loyalidad.setVisible(true);
-            menuañadirmana1.setVisible(true);
-            menumana.setVisible(true);
-            menuañadirmana.setVisible(true);
-            ataque.setVisible(false);
-            defensa.setVisible(false);
-        }
-    }
+  
 
     private String obtenermanatotal() {
 
+         String todo = "";
+        manaxv = 0;
+      
         //    info();
         String blancot = "";
         String negrot = "";
@@ -669,6 +665,13 @@ public class AñadirmenuuController implements Initializable {
         String rojot = "";
         String incolorot = "";
         String manaxxt = "";
+        String blancoos="";
+        String negroo="";
+        String azull="";
+        String verdee="";
+        String rojoo="";
+        String incoloroo="";
+    this.manaxv=0;
 
         String swap = "";
         blancot = blancolabel.getText();
@@ -727,21 +730,14 @@ public class AñadirmenuuController implements Initializable {
 
         String valorx = Integer.toString(manaxv);
 
-        String todo = "";
+    
 
-        todo += valorx + azull + negroo + rojoo + verdee + incoloroo;
+        todo += valorx + azull + negroo + rojoo + verdee + incoloroo +blancoos;
         System.out.println(todo);
 
-        result = 0;
-        resultn = 0;
-        resulta = 0;
-        resultv = 0;
-        resultr = 0;
-        resultii = 0;
-        resultinc = 0;
         manaxv = 0;
         valorx = "";
-        todo = "";
+    
         return todo;
 
     }
@@ -772,7 +768,8 @@ public class AñadirmenuuController implements Initializable {
 
         String defensai;
         int defensaint;
-
+correcto=true;
+errortext="";
         // id precio existencias nombres descripcion mana tipo subtipo artista imagen lealdad ataque defensa edicion
         //   1          2           3           4       5     6       7       8       9      10      11      12      13      14
         // (Precio, Existencias, Nombre, Descripcion, Mana, Tipo, Subtipo, Artista, Imagen, Lealdad, Ataque, Defensa, Edicion, Foil) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");  
@@ -786,6 +783,72 @@ public class AñadirmenuuController implements Initializable {
         //    String subtipoo="subtipo";
         //      if (subtipo.Selected){
         try {
+            if (preciocarta.getText().isEmpty()){
+                   errortext+="EL CAMPO PRECIO NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                   correcto=false;
+            }
+            
+            if (Existenciascarta.getText().isEmpty()){
+                   errortext+="EL CAMPO EXISTENCIAS NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                       correcto=false;
+            }
+            
+            if (nombrecarta.getText().isEmpty()){
+                   errortext+="EL CAMPO NOMBRE NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                       correcto=false;
+            }
+            
+            if (descripcioncarta.getText().isEmpty()){
+                   errortext+="EL CAMPO DESCRIPCIÓN NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                       correcto=false;
+            }
+            
+            if (artista.getText().isEmpty()){
+                   errortext+="EL CAMPO ARTISTA NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                       correcto=false;
+            }
+            if (selectedimage==false){
+              errortext+="EL CAMPO IMAGEN NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                  correcto=false;
+
+            }
+            
+            if (Edicion.getSelectionModel().isEmpty()){
+                 errortext+="EL CAMPO EDICION NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                  correcto=false;
+            }
+             
+            if (tipo.getSelectionModel().isEmpty()){
+                 errortext+="EL CAMPO TIPO NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                  correcto=false;
+            }
+            
+            
+            
+        
+             if (foiltick.isSelected()){
+                 if (preciofoil.getText().isEmpty()){
+                        errortext+="EL CAMPO PRECIO FOIL NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                         correcto=false;
+                 }
+                 
+                 if (existenciasfoil.getText().isEmpty()){
+                        errortext+="EL CAMPO EXISTENCIAS FOIL NO SE ENCUENTRA RELLENADO" + "\n"  + "\n";
+                         correcto=false;
+                 }
+             }
+            
+            
+        ///    Precio Existencias Nombre Descripcion Mana Tipo artista imagen edicion foil
+            
+            
+            
+            if (correcto==true){
+                
+            
+            
+            
+            
             PreparedStatement stmt2 = con.prepareStatement("INSERT INTO carta (Precio, Existencias, Nombre, Descripcion, Mana, Tipo, Subtipo, Artista, Imagen, Lealdad, Ataque, Defensa, Edicion, Foil) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             String precio = preciocarta.getText();
             double precioo = Double.parseDouble(precio);
@@ -798,13 +861,19 @@ public class AñadirmenuuController implements Initializable {
             stmt2.setString(3, nombrecarta.getText());
             stmt2.setString(4, descripcioncarta.getText());
             stmt2.setString(5, obtenermanatotal());
-
+            System.out.println(obtenermanatotal());
+            System.out.println("Este es el mana");
+           
             PreparedStatement stmt3 = con.prepareStatement("Select Idtipo from tipo where Nombre = ?");
             stmt3.setString(1, tipo.getSelectionModel().getSelectedItem().getNombre());
             ResultSet rs = stmt3.executeQuery();
             rs.next();
             stmt2.setInt(6, rs.getInt(1));
-            if (subtipo.getSelectionModel().getSelectedItem().Nombre.equals("No subtipo") || subtipo.getSelectionModel().getSelectedItem().Nombre.equals("Subtipo")) {
+            
+            subtipo sb = subtipo.getSelectionModel().getSelectedItem();
+            
+            
+            if (sb.getIdsubtipo()==0) {
                 stmt2.setNull(7, java.sql.Types.INTEGER);
             } else {
 
@@ -814,12 +883,30 @@ public class AñadirmenuuController implements Initializable {
                 rs.next();
                 stmt2.setInt(7, rs.getInt(1));
             }
-
+            if (artista.getText().isEmpty()){
+                stmt2.setNull(8, java.sql.Types.INTEGER);
+                
+                       
+            }
+            else{
+                
+            
+            
             stmt2.setString(8, artista.getText());
+            }
+            if (rutaimagen.isEmpty()){
+                stmt2.setNull(9, java.sql.Types.INTEGER);
+            }
+            else{
+                
+            
             stmt2.setString(9, rutaimagen);
+            }
+            
             System.out.println(loyalidad.getText());
 
             if (loyalidad.getText().isEmpty()) {
+                stmt2.setNull(10, java.sql.Types.INTEGER);
 
             } else {
 
@@ -828,6 +915,7 @@ public class AñadirmenuuController implements Initializable {
             }
 
             if (ataque.getText().isEmpty()) {
+                stmt2.setNull(11, java.sql.Types.INTEGER);
 
             } else {
 
@@ -838,7 +926,7 @@ public class AñadirmenuuController implements Initializable {
             }
 
             if (defensa.getText().isEmpty()) {
-
+                stmt2.setNull(12, java.sql.Types.INTEGER);
             } else {
 
                 defensai = defensa.getText();
@@ -847,7 +935,7 @@ public class AñadirmenuuController implements Initializable {
             }
             PreparedStatement stmt4 = con.prepareStatement("Select Idedicion from edicion where Nombre = ?");
 
-            stmt4.setString(1, Edicion.getSelectionModel().getSelectedItem().Nombre);
+            stmt4.setString(1, Edicion.getSelectionModel().getSelectedItem().getNombre());
             rs = stmt4.executeQuery();
             rs.next();
             stmt2.setInt(13, rs.getInt(1));
@@ -881,7 +969,8 @@ private TextField existenciasfoil;
                 rs = stmt3.executeQuery();
                 rs.next();
                 stmt2.setInt(6, rs.getInt(1));
-                if (subtipo.getSelectionModel().getSelectedItem().Nombre.equals("No subtipo") || subtipo.getSelectionModel().getSelectedItem().Nombre.equals("Subtipo")) {
+                if (subtipo.getSelectionModel().getSelectedItem().getIdsubtipo()==0) {
+                    stmt2.setNull(7, java.sql.Types.INTEGER);
 
                 } else {
                     stmt3 = con.prepareStatement("Select Idsubtipo from subtipo where Nombre = ?");
@@ -895,14 +984,14 @@ private TextField existenciasfoil;
                 stmt2.setString(9, rutaimagen);
 
                 if (loyalidad.getText().isEmpty()) {
-
+  stmt2.setNull(10, java.sql.Types.INTEGER);
                 } else {
 
                     int loyalidadd = Integer.parseInt(loyalidad.getText());
                     stmt2.setInt(10, loyalidadd);
                 }
                 if (ataque.getText().isEmpty()) {
-
+    stmt2.setNull(11, java.sql.Types.INTEGER);
                 } else {
 
                     ataquei = ataque.getText();
@@ -911,7 +1000,7 @@ private TextField existenciasfoil;
                     stmt2.setInt(11, ataqueint);
                 }
                 if (defensa.getText().isEmpty()) {
-
+ stmt2.setNull(12, java.sql.Types.INTEGER);
                 } else {
 
                     defensai = defensa.getText();
@@ -920,13 +1009,24 @@ private TextField existenciasfoil;
                 }
                 stmt4 = con.prepareStatement("Select Idedicion from edicion where Nombre = ?");
 
-                stmt4.setString(1, Edicion.getSelectionModel().getSelectedItem().Nombre);
+                stmt4.setString(1, Edicion.getSelectionModel().getSelectedItem().getNombre());
                 rs = stmt4.executeQuery();
                 rs.next();
                 stmt2.setInt(13, rs.getInt(1));
                 stmt2.setInt(14, 1);
                 stmt2.executeUpdate();
 
+            }
+            }
+            /*    alert.setTitle("CONTRASENYA ERROR");
+            alert.setHeaderText("CONTRASENYA ERROR");
+            alert.setContentText("La contrasenya no son las mismas, introducela de nuevo");
+            alert.showAndWait();*/
+            else {
+                alertcampo.setTitle("ERROR CAMPOS");
+                alertcampo.setHeaderText("CAMPOS NO RELLENADOS");
+                alertcampo.setContentText(errortext);
+                alertcampo.showAndWait();
             }
             // stmt2.executeUpdate();
 

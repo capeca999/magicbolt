@@ -8,12 +8,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="prueba.AñadirlineamerchController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.AñadirlineamerchController">
     <stylesheets>
         <URL value="@añadirlineamerch.css" />
     </stylesheets>
    <children>
-      <Label id="textoswitch" fx:id="textoswitch" layoutX="47.0" layoutY="24.0" text="PEDIDO CARTA" textFill="#fbff00">
+      <Label id="textoswitch" fx:id="textoswitch" layoutX="47.0" layoutY="24.0" text="PEDIDO MERCHANDASING" textFill="#fbff00">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
@@ -43,17 +43,16 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button id="buscarcarta" fx:id="buscarcarta" layoutX="206.0" layoutY="105.0" mnemonicParsing="false" onAction="#buscarcartanombre" text="Buscar" />
+      <Button id="buscarmerch" fx:id="buscarmerch" layoutX="206.0" layoutY="105.0" mnemonicParsing="false" onAction="#buscarmerchnombre" text="Buscar" />
       <Button id="añadirmerch" fx:id="añadirmerch" layoutX="91.0" layoutY="381.0" mnemonicParsing="false" onAction="#añadircartaatext" text="Añadir Merchandasing" />
       <TextArea id="textcomun" fx:id="textcomun" layoutX="453.0" layoutY="298.0" prefHeight="116.0" prefWidth="196.0" />
       <TableView id="tablamerch" fx:id="tablamerch" layoutX="38.0" layoutY="170.0" prefHeight="200.0" prefWidth="379.0">
          <columns>
-            <TableColumn id="Idmerchrow" fx:id="Idmerchrow" prefWidth="75.0" text="Nombre" />
+            <TableColumn id="Idmerchrow" fx:id="Idmerchrow" prefWidth="75.0" text="Idmerch" />
             <TableColumn id="preciorow" fx:id="preciorow" prefWidth="75.0" text="Precio" />
             <TableColumn id="existenciasrow" fx:id="existenciasrow" prefWidth="51.0" text="Existencias" />
             <TableColumn id="nombrerow" fx:id="nombrerow" prefWidth="29.0" text="Nombre" />
             <TableColumn id="descripcionrow" fx:id="descripcionrow" prefWidth="74.0" text="Descripcion" />
-            <TableColumn id="preciorow" fx:id="preciorow" prefWidth="74.0" text="Precio" />
          </columns>
       </TableView>
       <Label layoutX="57.0" layoutY="143.0" text="2º Cual en especifico" textFill="#e4ff00">

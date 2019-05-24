@@ -93,7 +93,10 @@
             </RadioButton>
          </children>
       </VBox>
-      <Button id="modificar" fx:id="modificar" layoutX="105.0" layoutY="349.0" mnemonicParsing="false" onAction="#modificartable" text="Modificar" />
+      <Button id="modificar" fx:id="modificar" layoutX="105.0" layoutY="349.0" mnemonicParsing="false" onAction="#modificartable" prefHeight="48.0" prefWidth="85.0" text="Modificar" textFill="#1a6524">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
       <Button id="eliminarempleado" fx:id="eliminarempleado" layoutX="231.0" layoutY="349.0" mnemonicParsing="false" onAction="#eliminarempleado" text="Eliminar" textFill="RED">
          <font>
             <Font name="System Bold" size="22.0" />

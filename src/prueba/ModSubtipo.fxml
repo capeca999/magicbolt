@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prueba.ModSubtipoController">
+    <stylesheets>
+        <URL value="@modsubtipo.css" />
+    </stylesheets>
+   <children>
+      <TableView id="tablasubtipo" fx:id="tablasubtipo" layoutX="24.0" layoutY="37.0" prefHeight="326.0" prefWidth="249.0">
+         <columns>
+            <TableColumn id="Idtiporow" fx:id="Idsubtiporow" prefWidth="75.0" text="Idsubtipo" />
+            <TableColumn id="nombrerow" fx:id="nombrerow" prefWidth="172.0" text="Nombre" />
+         </columns>
+      </TableView>
+      <Button id="cancelarboton" fx:id="cancelarboton" layoutX="495.0" layoutY="162.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="48.0" prefWidth="115.0" text="Cancelar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button id="aceptarboton" fx:id="aceptarboton" layoutX="273.0" layoutY="162.0" mnemonicParsing="false" onAction="#añadir" prefHeight="48.0" prefWidth="155.0" text="Aceptar Añadir" textFill="#148318">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button id="añadirboton" fx:id="añadirboton" layoutX="383.0" layoutY="162.0" mnemonicParsing="false" onAction="#invisible" prefHeight="48.0" prefWidth="115.0" text="Añadir" textFill="#148318">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button id="eliminarsubtipo" fx:id="eliminarsubtipo" layoutX="383.0" layoutY="315.0" mnemonicParsing="false" onAction="#eliminarsubtipo" text="Eliminar" textFill="RED">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button id="modificar" fx:id="modificar" layoutX="383.0" layoutY="241.0" mnemonicParsing="false" onAction="#modificartable" prefHeight="48.0" prefWidth="115.0" text="Modificar" textFill="#148318">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField id="idsubtipofield" fx:id="idsubtipofield" editable="false" layoutX="366.0" layoutY="51.0" promptText="Id Subtipo" />
+      <Label layoutX="366.0" layoutY="24.0" prefHeight="17.0" prefWidth="149.0" text="IDSubtipo" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="80.0" prefHeight="17.0" prefWidth="149.0" text="Nombre" textFill="#fffb00">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="nombrefield" fx:id="nombrefield" layoutX="366.0" layoutY="107.0" promptText="Nombre Subtipo" />
+   </children>
+</AnchorPane>
